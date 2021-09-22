@@ -1,0 +1,563 @@
+Srinivas Dachepalli | 6305 730 633 | dachepallisrinivas@gmail.com
+
+
+	Java Training
+	--------------
+	
+		Core Java
+			oops
+			io streams
+			collections
+			exception handling
+			Multi Threading
+
+			
+			
+		Advanced Java
+			dbms basics
+			jdbc
+
+			html
+			css
+			javascript
+			
+			servlets
+			jsp
+			jstl
+			
+			
+		Java EE Frameworks
+
+			hibernate
+			spring - core, mvc
+			spring boot
+
+		Devops Tools
+			GIT
+			Maven
+			Jenkins
+			PMD / SonarLint / SonarQube	(Code Quality Analysis)		
+
+
+
+	Eclipse 
+	STS	(Spring Tool Suite)
+
+
+	Coding Standards	(Best Practices)
+	-----------------------------------------
+	Code -> PMD -> generate a report and it assign marks also for your code.
+		score < 85
+
+		Code Smells
+
+	1) naming convensions
+		
+		pascal notation
+		camel notation
+		uppercase notation
+		lowercase notation
+
+
+What is Java?
+    is a high level strictly but partially object oriented programming language.
+
+    + Strictly object oriented, as there is no way possible to implement any java application 
+      without using OOP.,
+    + Partially object oriented, as java supports native variables and native types which are
+      not objects and classes
+
+Who developed Java?
+    Sun microsystems - James Gosling
+    Oracle corp. is the present owner of Java language.
+    (www.oracle.com)
+
+Histroy And Evolution
+----------------------------------------
+    JDK Alpha and Beta (1995)
+    JDK 1.0 (23rd Jan 1996)
+    JDK 1.1 (19th Feb 1997)
+    J2SE 1.2 (8th Dec 1998)                             Stable  
+    J2SE 1.3 (8th May 2000)
+    J2SE 1.4 (6th Feb 2002)                             Stable and Prominent
+    J2SE 5.0 (30th Sep 2004)                            Stable, Prominent and Revolutionary
+    Java SE 6 (11th Dec 2006)
+    Java SE 7 (28th July 2011)
+    Java SE 8 (18th Mar 2014)   (LTS)                   Stable and Most used on current day 
+    Java SE 9 (21st Sep 2017)
+    Java SE 10 (20th Mar 2018)
+    Java SE 11 (Sep 2018)       (LTS)                   Stable and being adopted 
+    Java SE 12 (Mar 2019)
+    Java SE 13 (Sep 2019)
+    Java SE 14 (Mar 2020)
+    Java SE 15 (Sep 2020)
+
+Java Distributions
+-------------------------------------
+        JRE                 Java Runtime Environment         
+                                {Java Libraries,GC,JVM,Interpreter,ClassLoader,ByteCodeVerifier,JIT Compiler...}
+        
+        JDK                 Java (Standard) Development Kit    
+                                {JRE, Development Tools, IDE Support}
+Java program excution process:
+------------------------------
+text editor             -   source code     -   sample.java
+compiler   (javac)      -   byte code       -   sample.class   
+                    (byte code is not in the form of 0's & 1's)
+
+is this sample.class is targeted to one particular O/S ?
+NO.
+
+sample.class is not an executable program.
+
+byte code   --> JVM (Java Virtual Machine) -> JVM will convert the byte code 
+        into native machine code (sequence of 0's & 1's understood by that particular
+        O/S in which the program is executed)
+        the program is executed.
+
+        machine code is generated ON-THE-FLY.
+
+Java is platform (means o/s) independent language.
+
+is JDK  common for all O/S? -   (platform dependent)
+    NO
+is JRE  common for all O/S? -   (platform dependent)
+    No
+is JVM  common for all O/S? -   (platform dependent)
+    NO
+
+BYTE CODE is the only one component which is platform independent.
+
+is Native machine code common for all O/S?
+    NO
+
+
+JDK   (Java Development Kit)  
+    for developers.
+    lot of tools to develop java applications.
+    
+    javac   -   java compiler
+    java    -   interpreter
+    javadoc -   to create HTML documentation of a project
+    javap	-	
+    jdb     -   java debugger
+    appletviewer
+	jar		
+
+
+JRE   (Java Runtime Environment)
+    JRE provide JVM + other libraries
+
+
+Features of Java:
+-----------------
+1. platform independent
+2. object oriented 
+3. secured
+        no explicit pointers in java.
+        java programs run inside a special environment i.e. JVM.
+        JVM will talk to O/S.
+        (JVM is a collection of programs - class-loader, byte-code-verifier, garbage-collector)
+4. robust
+        means fault-tolerant, strong, vigour and healthy.
+        a. exception handling
+        b. automatic garbage collection
+        c. strong type checking.
+
+5. self-documented (open source)
+    source code is visible to anyone.
+6. architectural neutral
+7. compiled and interpreted
+
+
+CODING STANDARDS / BEST PRACTICES
+1. maintain proper indentation.
+2. naming conventions
+
+Java Tokens
+-----------
+smallest element in the program.
+
+
+1. identifier
+        it is a name given to variables, class, method names, package etc.,
+
+        variable, method names must follow camel notation
+            first word is in lowercase.
+            from the second word onwards use first letter of each word is in uppercase
+            and rest in lower case.
+
+            eg:
+                length
+                lengthOfRectangle
+                circleArea
+
+                acceptData()
+                showMinMaxInArray()
+        
+        class names, file name and project must follow pascal notation.
+        (first letter of each word in uppercase and the rest in lowercase).
+            eg:
+                ArrayIndexOutOfBoundsException
+                RuntimeException
+                String
+				System
+
+
+        package name
+            always in lowercase
+            there are often abbreviated.
+            eg:
+                io
+                lang
+                awt
+                util
+                
+        constants
+            always be in uppercase.
+            it is a name given to literal.
+            it is immutable.
+            it is qualified with "final" keyword.
+            they can be separated with an underscore.
+
+            1. identifier
+        it is a name given to variables, class, method names, package etc.,
+
+        variable, method names must follow camel notation 
+            first word is in lowercase.
+            from the second word onwards use first letter of each word is in uppercase
+            and rest in lower case.
+
+            eg:
+                length
+                lengthOfRectangle
+                circleArea
+
+                acceptData()
+                showMinMaxInArray()
+        
+        class names, file name and project must follow pascal notation.
+        (first letter of each word in uppercase and the rest in lowercase).
+            eg:
+                ArrayIndexOutOfBoundsException
+                RuntimeException
+                String
+
+        package name
+            always in lowercase
+            there are often abbreviated.
+            eg:
+                io
+                lang
+                awt
+                util
+
+        constants
+            always be in uppercase.
+            it is a name given to literal.
+            it is immutable.
+            it is qualified with "final" keyword.
+            they can be separated with an underscore.
+
+            final double PIE = 3.14;
+                    PIE is a constant.
+                    3.14 is literal
+
+            final int PASS_MARKS = 35;
+            final int MAX_MARKS = 100;
+            final int BATCH_CAPACITY = 40;
+            
+2. keywords
+        these are also reserved words.
+        eg: if, switch, for, while
+            int, float, double
+
+3. operators
+        unary operators
+           which takes only one operand.
+           ++   --  !    
+        binary operators
+            it takes two operands
+            all the remaining 
+        ternary operator
+            which takes three operands.
+            conditional operator
+
+
+        a) arithmetic operators :   +   -   *   /   %
+        b) relational operator  :   >   <   ==  >=  <=  !=
+        c) logical operators    :   &&  ||  !
+        d) conditional operator :   (condition) ? true-statment : false-statement;
+        e) assignment operator  :   =   +=  -=  *=  /=  %=
+        f) increment / decrement :  ++, --
+        g) bitwise operators    :   refer your self.
+        h) misc. operators      :
+                []
+                ()
+                <>
+                ,
+                .
+                ;
+                instanceof
+4. literals
+        any hard coded value.
+
+        doule area = 3.14*radius*radius;
+
+        3.14 is literal.
+
+        a) integer literals
+                i) decimal literal      (0-9)
+                    30, -5
+
+                ii) binary literal      (0,1)
+                    0b101011
+                    int a = 0b101;
+
+                    observe the 0b prefix here.
+
+                iii) octal literal      (0-7)
+                    int a = 0234;
+
+                    observe 0 prefix.
+
+                iv) hexadecimal literal (0-9, A-F)
+                    int a = 0xABC;
+
+                    observe 0x prefix
+                
+        b) floating point literals
+                3.14
+        c) character literals
+                character is a single alphabet, single digit or single special symbol.
+                it the charcater is enclosed within single quotes, it is character constant.
+
+                'A'
+                '7'
+                '?'
+                'AB'        invalid
+
+                escape sequence characters:
+                '\n'        new line character
+                '\t'        tab
+
+
+        d) string literals
+                group of characters enclosed within double quotes.
+
+                "srinivas"
+                "49-53-20/25"
+                "9247175823"
+                "a"
+				""              empty string
+
+        e) boolean literals
+                true, false
+
+
+5. comments
+        ignored by the compiler.
+
+        end-of-line comment             //
+        block comment                   /*  and */
+        documentation comment           /** and */	
+		
+		double PIE = 3.14;
+                    PIE is a constant.
+                    3.14 is literal
+
+            final int PASS_MARKS = 35;
+            final int MAX_MARKS = 100;
+            final int BATCH_CAPACITY = 40;
+            
+            double circumference = 2 * PIE * radius;
+
+            keyword         double
+            indentifier     circumference
+            operator        =
+            literal         2
+            operator        *
+            constant        PIE
+            operator        *
+            identifier      radius
+            operator        ;
+
+
+2. keywords
+        these are also reserved words.
+        eg: if, switch, for, while
+            int, float, double
+
+3. operators
+        unary operators
+           which takes only one operand.
+           ++   --  !    
+        binary operators
+            it takes two operands
+            all the remaining 
+        ternary operator
+            which takes three operands.
+            conditional operator
+
+
+        a) arithmetic operators :   +   -   *   /   %
+        b) relational operator  :   >   <   ==  >=  <=  !=
+        c) logical operators    :   &&  ||  !
+        d) conditional operator :   (condition) ? true-statment : false-statement;
+        e) assignment operator  :   =   +=  -=  *=  /=  %=
+        f) increment / decrement :  ++, --
+        g) bitwise operators    :   refer your self.
+        h) misc. operators      :
+                []
+                ()
+                <>
+                ,
+                .
+                ;
+                instanceof
+4. literals
+        any hard coded value.
+
+        doule area = 3.14*radius*radius;
+
+        3.14 is literal.
+
+        a) integer literals
+                i) decimal literal      (0-9)
+                    30, -5
+
+                ii) binary literal      (0,1)
+                    0b101011
+                    int a = 0b101;
+
+                    observe the 0b prefix here.
+
+                iii) octal literal      (0-7)
+                    int a = 0234;
+
+                    observe 0 prefix.
+
+                iv) hexadecimal literal (0-9, A-F)
+                    int a = 0xABC;
+
+                    observe 0x prefix
+                
+        b) floating point literals
+                3.14
+        c) character literals
+                character is a single alphabet, single digit or single special symbol.
+                it the charcater is enclosed within single quotes, it is character constantt.
+
+                'A'
+                '7'
+                '?'
+                'AB'        invalid
+
+                escape sequence characters:
+                '\n'        new line character
+                '\t'        tab
+
+
+        d) string literals
+                group of characters enclosed within double quotes.
+
+                "srinivas"
+                "49-53-20/25"
+                "9247175823"
+                "a"             
+                ""              empty string
+
+        e) boolean literals
+                true, false
+
+5. comments
+        ignored by the compiler.
+
+        end-of-line comment             //
+        block comment                   /*  and */
+        documentation comment           /** and */
+
+
+
+                                data types   
+                                ----------
+    primitive types
+        numeric 
+            integral
+                byte        1
+                short       2
+                int         4
+                long        8
+            floating-point
+                float       4
+                double      8
+        non-numeric
+                char        2
+                boolean     1 bit   -   true, false
+                
+                in java, true means not 1 and
+                false means not 0.
+                true, false are literals.
+
+                void    
+                	generally used to specify the return type of a function.
+    
+    user-defined types
+        class
+        interface
+        enum
+		annotation
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	
+	
+
+
+
+
+	
+
+
+		
+
+
+
+
+
+
+
+
+
+
+	
+	AWT
+	Applets
+	Swing
+	Socket Programming	(low-level features)
+
+	
+	
