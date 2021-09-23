@@ -1,5 +1,6 @@
 Srinivas Dachepalli | 6305 730 633 | dachepallisrinivas@gmail.com
 
+git repo link : https://github.com/dachepallisrinivas-1966/VirtueE
 
 	Java Training
 	--------------
@@ -507,7 +508,253 @@ smallest element in the program.
         interface
         enum
 		annotation
-		
+------------------------------------------------------------------------------------------------------------
+
+Eclipse IDE   (Java SE and Java EE)
+
+package:
+    it is represented as folder in O/S.
+    collection of classes, interfaces and sub packages.
+
+package name:
+    reverse of the domain name.
+    1) com.vev.tsw.ui
+
+in java, there is no function. we have methods only.
+
+method overloading:
+    when two methods have the same name but with different parfameter list.
+
+control structures:
+-------------------
+if      : bi-directional decision making statement.
+          data types permitted - int, long, short, byte
+                                 float, double, char 
+
+switch  : multi-directional decision making statement.
+          [data types permitted - int, long, byte, short, char, float, double, boolean.]
+
+for     : to repeat the statements for a finite number of times.
+while   : to repeat the statements for a indefinite number of times.
+do..while : to execute the statements atleast once
+
+break
+continue
+
+labelled break and labelled continue - explore yourself
+
+
+How do you accept data from the user?
+--------------------------------------
+    Scanner scan = new Scanner(System.in);
+
+    System.in means accept data from the keyboard.
+    
+    nextInt()
+    nextDouble()
+    next()
+    nextLine()
+
+    Scanner class is available in java.util package.
+
+    import java.util.Scanner;
+
+    (or)
+
+    type the fully qualified name.
+    java.util.Scanner scan = new java.util.Scanner(System.in);
+
+
+                                    arrays
+                                    ------
+
+linear collection of homogeneous data items stored under single name.
+0 based index.
+every array in java is an object.   
+array is provide a special property (field) with the name "length", that return no. of cells
+in the array.
+
+if we try to access an element with an invalid index, leads to an exception.
+"ArrayIndexOutOfBoundsException"
+
+types of arrays:
+-----------------
+1) single dimension
+2) multi-dimension
+3) jagged 
+
+single dimension:
+-------------------
+declaring:
+----------
+    datatype [] arrayName;
+    (or)
+    datatype arrayName[];
+
+    just by declaring, no memory is allocated.
+
+eg:
+    int [] arr;
+
+allocating memory:
+------------------
+    arrayName = new datatype[size];
+eg:
+    arr = new int[5];
+
+    whenever we use "new" keyword, the memory is allocated dynamically and stored in a special
+    memory area known as "heap".
+
+declaring and allocating :
+----------------------------
+    datatype [] arrayName = new datatype[size];
+
+eg:
+    int [] arr = new int[5];
+
+initialize an array:
+---------------------
+    int []  arr = {10,20,30,40,50}; 
+
+enhanced for loop:
+------------------
+for  (datatype   var  :  array) {
+    statement(s);
+}
+
+ there is no concept called "index".
+	Enhanced for loop offer better performance than classic for loop.
+	loop variable is not "int" unlike as in classic for loop.
+	type of the loop variable is same as the type of array.
+	We cannot process few elements in the array.
+
+    it is used to traverse an entire array or a collection in forward-only direction.
+
+write a program to find min, max of an array.
+
+jagged array:
+-------------
+it is a multi-dimension array, contain different no. of columns in each row.
+
+                                        Command Line Arguments
+                                        ----------------------
+
+public static void main(String [] args) {
+
+}
+
+we cannot define main method like this ..
+public static void main() {
+
+}
+it is treated as another method.
+
+
+command line arguments are used to give inputs (parameters) to the main() method.
+it is another way of accepting data.
+
+write a program to print all command-line arguments.
+
+write a program to accept two numbers and an arithmetic operation (ADD, SUB, MUL, DIV)
+using command line arguments and perform the operation and print the result.
+
+is int a primitive type ?	
+		yes`
+is String a primitive type?
+		no
+		String is a pre-defined class, it is a user-defined type.
+
+How do you convert data of String to primitive type int?
+    Integer -> parseInt(String form int)
+    eg: 
+        "10"    =>  Integer.parseInt("10") => 10
+        "5"     =>  Integer.parseInt("5") => 5
+        "ADD"   =>  
+
+    Double.parseDouble(String form double)
+
+        "10.5"  =>  Double.parseDouble("10.5") => 10.5
+    
+    for all illegal value, we get NumberFormatException.
+
+
+                                             VarArgs
+                                             -------
+write a function to return the sum of the values passed as arguments to the function.
+
+ it represents indefinite number of arguments
+    it is represented with ... (three dots)
+    three dot symbol "ellipsis".
+
+    we can pass any number of arguments while calling this type of function.
+
+    Command Line Arguments can also be represeted as Variable Arguments.
+
+
+                                        Method Overloading
+                                        ---------------------
+when two or more methods are having the same name but with different set of parameters ,
+then it is said to be funcmethod overloading.
+
+int area(int a, int b) {
+
+}
+
+int area(int a, double b) {
+
+}       // allowed
+
+int area(double a, int b) {
+
+}   // allowed
+
+double area(int a, int b) {
+
+}   // NOT ALLOWED - return type is not considered
+
+
+Arrays class: (java.util package)
+----------------------------------
+provide many util methods to simplify our programming.
+explore these methods.
+
+1) copyOf()
+2) binarySearch()
+3) sort()
+4) fill()
+5) toString()
+
+
+
+
+equals()
+    equals() compare references only
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -1,0 +1,37 @@
+1) roots of quadratic equation
+2) matrix addition
+3) matrix transpose
+4) sorting an array without using pre-defined methods
+5) print the following floyd triangle upto 'n' rows.
+    1
+    0   1
+    1   0   1
+    0   1   0   1
+6) write a program to find out all prime numbers in an array using functions.
+7) write a program to print number of palindrome numbers in an array using functions.
+8) accept an amount. print the best denomination of it.
+    eg: input : 7898
+        output : 2000 x 3 = 6000 
+                  500 x 3 = 1500
+                  200 x 1 =  200
+                  100 x 1 =  100
+                   50 x 1 =   50
+                   20 x 2 =   20
+                    5 x 1 =    5
+                    2 x 1 =    2
+                    1 x 1 =    1
+9) accept a date in the form of dd, mm, yy variables. check whether it is a valid date
+   or not.
+
+   eg: input :  dd = 23
+                mm =  9
+                yy = 2021
+       output : invalid date
+
+10) accept a date in the form of dd, mm, yy vaariables. print the date in dd-Month-yyyy format.
+    eg: input : dd = 23
+                mm = 9
+                yy = 2021
+        output : 23-September-2021
+
+

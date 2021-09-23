@@ -1,0 +1,13 @@
+what is the difference between jdk, jre and jvm?
+can main method be overloaded?
+what is the difference between if and switch?
+what are the valid datatypes allowed for switch?
+what is the difference between for and while?
+what is the difference between break and continue?
+write a demo program - labelled break and labelled continue
+what is jagged array? how do you initialize it?
+what is the default mechanism - call-by-value or call-by-reference?
+can we return array from a function?
+can we overload static methods?
+
+
