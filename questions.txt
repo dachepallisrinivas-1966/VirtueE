@@ -9,5 +9,10 @@ what is jagged array? how do you initialize it?
 what is the default mechanism - call-by-value or call-by-reference?
 can we return array from a function?
 can we overload static methods?
+-------------------------------------------------------------------------------------
+write about various programming paradigms.
+what is the difference between POP and OOP?
+what is a copy constructor?
+can a constructor be static?
 
 

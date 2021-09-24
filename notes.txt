@@ -140,7 +140,7 @@ JDK   (Java Development Kit)
     javac   -   java compiler
     java    -   interpreter
     javadoc -   to create HTML documentation of a project
-    javap	-	
+    javap	-	disassembler
     jdb     -   java debugger
     appletviewer
 	jar		
@@ -730,6 +730,113 @@ explore these methods.
 equals()
     equals() compare references only
 
+=========================================================================================================
+
+                                    OOPS    (Object Oriented Programming System)
+                                    --------------------------------------------
+It is a programming paradigm (methodologies)
+    + monolithic programming    (eg: assembly language, basic)
+    + procedure oriented        (eg: cobol)
+    + structured programming    (eg: 'C')
+    + object oriented programming. (eg: C++, Java, C#, Python)
+
+Advantages of OOP:
+-------------------
++   code re-usability
++   security
+
+class:  It is a user-defined datatype that represent an entity in terms of properties (data members) 
+        and behaviours (methods)
+        classes we are creating, also known as POJO (Plain Java Old Object).
+        classes are also known as model, dto, entity etc.,
+object: It is a runtime instance of class.
+
+features of OOPS:
+-----------------
++ encapsulation : providing setters and getters, so that other classes can access the private data
+                  using these methods.
++ data hiding : making data members as private
+
++ abstraction : behaviour hiding
++ inheritance
++ polymorphism
++ persistence
+
+
+class ClassName {
+    [data members]
+    [methods]
+}
+
+creating object:
+----------------
+ClassName   objectName;
+objectName = new ClassName();
+
+access specifiers (access modifiers):
+---------------------------------------
+1) default 
+2) private  :   members under this access can be used only within the class in which they are defined
+3) public   :   members under this access can be used in any class
+4) protected
+
+setters (mutators) and getters (accessors):
+
+
+"this" reference:
+--------------------
+it refer to the "implied object".
+implied object is the one through which a method is executed currently.
+
+
+data members are stored separately for each object.
+methods are stored only once and they can be accessed by all objects.
+
+
+static members:
+-----------------
+static means "sharable".
+1) static data members      (class variables)
+    + when a data member is declared as "static", it is stored only once in the memory
+      and that is shared across all objects of the class.
+
+2) static methods
+    + it allow only static data members or static methods
+    + it can be called directly with the class name. no need to use any object to call static method.
+    + "this" keyword is not allowed in a static method
+
+3) static block
+4) static class         (refer it)
+
+
+constructor:
+-------------
+1) it is a special method which is automatically executed whenever an object is created.
+2) it should have the same name as that of class.
+3) if no constructor is written, java create a default constructor on it's own.
+4) it can take parameters.
+5) we cannot return any value from a constructor, and should not have return type as "void"
+6) a class can have many constructors. this is known as "constructor overloading".
+
+type constructors:
+-------------------
+1) default constructor   (no-parameter constructor)
+2) parameter constructor
+3) copy constructor : it is a special constructor that takes object of the same class as parameter.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -801,10 +908,6 @@ equals()
 
 
 	
-	AWT
-	Applets
-	Swing
-	Socket Programming	(low-level features)
-
+	
 	
 	

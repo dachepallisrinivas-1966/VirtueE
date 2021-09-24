@@ -33,5 +33,23 @@
                 mm = 9
                 yy = 2021
         output : 23-September-2021
+=========================================================================================================
+11) create the Point class based on requirements discussed in the form of class diagram.
+12) draw the class diagram and implement the code based on the following requirements.
+    create Date class
+        dd
+        mm
+        yy
+    default constructor
+    parameter constructor
+    write a method to check the validity of the date
+    write a method to display the date in dd-MONTH-yyyy  (eg: 24-September-2021)
+    write a method nextDate() which will return the next date of the given date.
+=========================================================================================================
+
+
+
+
+
 
 
