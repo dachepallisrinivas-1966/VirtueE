@@ -14,5 +14,7 @@ write about various programming paradigms.
 what is the difference between POP and OOP?
 what is a copy constructor?
 can a constructor be static?
+-------------------------------------------------------------------------------------
+what is the antonym kind of keyword for "final"?
 
 
