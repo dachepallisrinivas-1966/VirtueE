@@ -1104,15 +1104,471 @@ class               : entity
 abstract class      : semi-defined entity
 interface           : ROLE (responsibility)
 
+==================================================================================================
+
+interfaces:
+-----------
+It is a user-defined datatype (like class) that represents a ROLE and can contain 
+only abstract methods and static final variables (till JDK 1.7)
+interface will not have properties.
+we cannot instantiate (creating an object) an interface.
 
 
 
+ interface                              Abstract Class
+ ------------------                    -------------------
+ no fields                              may have fields
+ only public members                    any type of members
+ 
+ represent Role                         represent Entity (semi-defined)
+ 
+ one entity can 
+ have any number of roles
+
+ to achieve multiple inheritance
+
+
+enum:
+------
+it is a user-defined datatype that represent possible values of a property (contain fixed set of constants)
+"enum" stands for "enumeration".
+
+It can be used for day of the week (SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY and SATURDAY) , 
+directions (NORTH, SOUTH, EAST and WEST), Season (WINTER, SPRING, SUMMER, FALL), gender (MALE, FEMALE)   etc. 
+
+The java enum constants are static and final implicitly. 
+
+enum ensures type safety.
+
+methods:
+---------
+1) values()
+2) ordinal()
+3) name()
+
+ 
+static class
+
+ Not all classes can be static.
+
+ Java allows us to create one class inside another class, also known as inner class.
+ only such inner class can be marked as static,
+ and static inner classes are called nested classes.
+
+ class Demo{
+    class InnerClass{
+
+    }
+
+    static class NestedClass{
+
+    }
+ }
+
+
+Java 8 enhancements to an interface.
+------------------------------------
+ default methods
+
+ unlike method in a interface that are forced to be abstract,
+ if a method is marked with keyword 'default', then the
+ default method can have implementation
+
+ interface A {
+    public abstract void m1();
+    public abstract void m2();
+
+
+   default void m3() {
+       // implementation code
+   }
+
+   static void m4() {
+
+   }
+
+ }
+
+ class B implements A {
+     @Overriding
+     void m1() {
+
+     }
+
+     @Overiding
+     void m2() {
+
+     }
+
+     @Override
+     void m3() {
+         // sub class specific
+     }
+ }
+
+ B obj = new B();
+ obj.m1()
+ obj.m2()
+ obj.m3()
+
+ A.m4()     ==> since m4 is static method, we can call by using interface name.
 
 
 
+ 100 implementation classes 
 
 
-	
-	
-	
-	
+
+						                Built-In Packages
+						                ------------------
+                                        (Java SE Libraries)
+
+java.lang			(default package - because it is imported for every program)
+	Object          
+	System
+	Math
+	String
+	StringBuffer
+	StringBuilder
+	Exception
+	Throwable interface
+	Runnable interface
+	Thread
+	Wrapper classes - Integer, Double, Float, Long, Boolean
+
+
+java.time	(JDK 1.8) - DateTime API
+	LocalDate
+	LocalTime
+	LocalDateTime
+	DateTimeFormatter
+	Duration
+	Period
+
+java.util
+    Scanner
+    Date        (deprecated)
+    Calendar    (deprecated)
+java.io
+    BufferedReader
+
+to use any class, we need to specify fully qualified class name.(eg: packagename.classname) 
+or import them.
+
+java.lang is the default package. it is automatically imported for every program.
+
+1 java.lang.System class:
+   -------------------------------
+
+	class variables			              object
+	-------------------				    ---------
+	public static java.io.InputStream		in
+	public static java.io.PrintStream		out
+	public static java.io.PrintStream		err
+
+	System.in	carries signal from keyboard to VDU.
+	System.out, System.err carries signal directly to VDU.
+
+
+	methods:
+	------------
+	public static void gc();		request for garbage collection.
+	public static void exit(int)	terminates the program then and there. int could be either a 0 or 1.
+    String getEnvironmentVariable(String varName);
+    void setEnvironmentVariable(String varName,String value);
+
+
+java.lang.Math
+-------------------
+	public static fields:
+	------------------------
+		E, PI
+    	
+	public static methods
+	----------------------------
+		double pow()
+		double sin(angle in radians)
+            Math.sin(30)    =>  ???
+            Math.sin(Math.toRadians(30))    =>  0.5
+
+        double cos(angle in radians)
+		double sqrt()
+
+		ceil() : return next integer
+            Math.ceil(11.2) => 12
+		floor() : return previous integer
+            Math.floor(11.9) => 11
+		round() 
+            Math.round(11.2) =>  11
+            Math.round(11.9) =>  12
+
+		abs()
+		toRadians()
+		toDegrees()
+
+java.lang.String
+---------------------
+	String is immutable	(not modifiable).
+    what is immutability?
+        String s1 = "Hello";
+        String s2 = new String("World");
+        String s3 = s1 + s2;
+
+	creating object:
+	---------------------
+	1) String	str;
+	2) String	str = new String();
+	3) String	str = "hello";
+	4) String	str = new String("hello");
+	5) String	str1 = str;
+	6) String	str1 = new String(str);
+
+
+	methods:
+	-------------
+	1) length()		2) toUpperCase()		3) toLowerCase()
+	4) indexOf(String)	5) lastIndexOf(String)		6) startsWith(String)
+	7) endsWith(String)	8) contains(String)		9) charAt(index)
+	10) substring(start_index [, end_index] )		11) split()
+	12) equals(String)	13) equalsIgnoreCase(String)	14) compareTo(String)
+	15) valueOf()		16) format()        17) replace(old_char, new_char)
+
+    18) join()  - JDK 1.8
+
+    "+" string concatenation operator
+
+
+String constant pool (String literal pool)
+------------------------------------------
+    This is a special memory used to store string constants.
+
+
+java.lang.StringBuffer and java.lang.StringBuilder:
+------------------------------------------------------------------
+	StringBuffer is thread-safe. (synchronized)
+	StringBuilder is not thread-safe.
+
+	They are mutable (modifiable).
+
+	a) capacity()
+	b) append()
+	c) insert()
+	d) delete()
+	e) reverse()
+
+StringJoiner (jdk 1.8)
+    used to join group of Strings.
+
+    StringJoiner(delimiter)
+    StringJoiner(delimiter, prefix, suffix)
+    merge()
+
+StringTokenizer (java.util)         -- Legacy Class
+    to split the string into words based on the delimiter given.
+
+    StringTokenizer(string, delimiter, boolean returnDelims)
+
+    hasTokens()
+    nextToken()
+
+    Since it is a legacy class, we can use split() of String class, which offer better
+    performance.
+
+
+
+Wrapper Classes                     static method
+---------------------               ---------------------------------
+    java.lang.Integer               parseInt(string-form-int)
+    java.lang.Short
+    java.lang.Byte
+    java.lang.Double                parseDouble(string-form-double)
+    java.lang.Boolean
+    java.lang.Float
+    java.lang.Character
+    java.lang.Long
+
+every wrapper class provide two constants.
+    MIN_VALUE 
+    MAX_VALUE
+
+ Boxing:
+    primitive variable into a wrapper object
+
+    int x = 89;
+    Integer iobj = x;   //auto-boxing
+
+ unBoxing:
+    wrapper object into primitive variable
+ 
+    Integer iobj = new Integer(109);
+    int x = iobj; // auto-unboxing
+
+static import: (JDK 1.5)
+------------------------
+    java.lang.Math class provide static methods.
+        sqrt()
+        abs()
+        pow()
+
+    int a, b;
+    double hypotenuse = Math.sqrt(Math.pow(a,2) + Math.pow(b,2));
+
+    (or)
+    import static java.lang.Math.sqrt;
+    import static java.lang.Math.pow;
+
+    double hypotenuse = sqrt(pow(a,2) + pow(b,2));
+
+
+    import java.util.Scanner;       // recommended
+    import java.util.*;             // bad coding practice
+
+
+Exception Handling
+--------------------------------
+    Exception is an object that represents a situation
+    where the application broke down.
+
+                java.lang.Throwable (i)
+                        |
+                        |
+            ---------------------------------
+            |                               |
+            java.lang.Error         java.lang.Exception
+                                            |
+                                            |
+                                    java.lang.RuntimeException
+    
+    Exception classes that are derived from Exception class - CHECKED
+    Exception classes that are derived from RuntimeException class - UNCHECKED
+
+
+    1) try : contain the code where the exception can be generated.
+    2) catch : contain statements that are to be executed when the specified exception occurred.
+            
+            the most relevant exception classes mention first.
+            least relevant exception mention next.
+
+    a try block must follow an immediate catch block (or) a finally block.
+
+            try {
+                ..
+            } finally {
+                ...
+            }
+
+    a try can have many catch blocks.
+    a try block can have another try block within it.
+
+    3) finally : contain the code to be executed whether an exception or occurred or not.
+
+
+    UnChecked Exceptions
+
+        unchecked exceptions are 
+        NOT INFORMED BY THE IDE / COMPILER. 
+
+        we are not supposed to handle UnChecked Exceptions
+        because they can be avoided through "Defensive programming".
+
+            Employee emp;
+            emp = new Employee();
+            emp.setName("Lavanya"); //NullPointerException is avoided.
+
+                public void processHike(Employee emp){
+                    if(emp!=null){
+                        emp.setBasic(emp.getBasic()+10000); // NullPointerException is avoided
+                    }
+                }
+
+        
+        Checked Exceptions
+
+            all exception classes that are NOT
+            dereived from RuntimeException class are
+            identified as Checked exceptions.
+        
+            if you do not handle checked exceptions, the compiler will give errors.
+
+            if a method is supposed to raise
+            checked exception, the compiler will
+            forces to handle checked exceptions
+
+            checked exceptions must be handled, they cannot be avoided.
+
+            eg:
+                download a file, IOException
+                database connection broken.   SQLException
+
+                try{
+                    ....the code that may raise an exception     
+                } catch(Exception exp){
+                    ..do the alternate or display a user understandable message.
+                }
+
+
+        user Defined Excepitons
+
+            1. create a class which should be derived from java.lang.Exception
+            2. write a constructor that takes a String parameter.
+            3. call the super class constructor by passing this String to it.
+
+            create a checked exception
+            
+            class MyCheckedException extends Exception {
+                  
+                MyCheckedException(String errMsg){
+                    super(errMsg);
+                }
+            }
+
+            create an unchecked exception
+
+            1. create a class which should be derived from java.lang.RuntimeException
+            2. write a constructor that takes a String parameter.
+            3. call the super class constructor by passing this String to it.
+
+            class MyUnCheckedException extends RuntimeException {
+                  
+                MyUnCheckedException(String errMsg){
+                    super(errMsg);
+                }
+            }
+
+            "throw" keyword is used to raise an exception
+                throw new MyCheckedException("error message");
+
+            "throws" keyword is used to tranfer the exception
+            from a method to its caller method.
+
+
+    String getMessage()         (java.lang.Throwable)
+	void printStackTrace()      (java.lang.Throwable)
+
+
+
+JDK 7 Enhancements:
+---------------------------------
+a) multi-catch exception
+
+    try {
+	    statement(s)
+    } catch (Exception-1   |  Exception-2  |  Exception-3    obj) {
+	    statement(s)
+    }
+
+b) try-with-resources
+
+    try(declare closable resourceses here....){
+                    ........................
+    }catch(....){
+
+    }
+
+    the closable resource will be clsoe automatically.
+
+    a Resource has to implement java.lang.Closable interface
+    to be recognized as closable.
+
+
+

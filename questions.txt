@@ -17,4 +17,24 @@ can a constructor be static?
 -------------------------------------------------------------------------------------
 what is the antonym kind of keyword for "final"?
 
+what is the difference between abstract class and interface?
+what is a static class?
+what is a static block?
 
+what is the difference between StringBuilder and StringBuffer?
+
+what is boxing and unboxing?
+what is auto-boxing and auto-unboxing?
+
+what is static import?
+
+
+
+
+
+what are the new features of java 8?
+    + DateTimeAPI
+    + enhancements to interfaces
+
+    + join() method in String class
+    + StringJoiner class

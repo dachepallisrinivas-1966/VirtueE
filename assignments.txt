@@ -64,6 +64,16 @@
                     maturityamount
                     maturitydate        (optional)
                     tenure  (in terms of months)
+===========================================================================
+15) write a program to check whether a given string is a palindrome or not.
+    (using stringbuilder)
+
+16) write a function to check whether the given string contain only digits.
+
+
+
+
+
 
     
 
