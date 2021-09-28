@@ -73,7 +73,21 @@
 17) ExceptionDemo2.java 
         avoid NumberFormatException by using java.util.regex
 
-        
+18) create a Product class
+        [id, name, opstock]
+
+        methods : constructors, settters and getters
+                  issue(int qty)
+                  receive(int qty)
+
+        make sure that the stock level should not come below 5 items.
+
+
+
+
+
+
+
 
 
 
