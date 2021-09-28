@@ -28,6 +28,10 @@ what is auto-boxing and auto-unboxing?
 
 what is static import?
 
+exception class hierarchy.
+
+collection api hierarchy.
+
 
 
 

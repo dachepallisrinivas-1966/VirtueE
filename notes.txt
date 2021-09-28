@@ -1237,14 +1237,6 @@ java.lang			(default package - because it is imported for every program)
 	Wrapper classes - Integer, Double, Float, Long, Boolean
 
 
-java.time	(JDK 1.8) - DateTime API
-	LocalDate
-	LocalTime
-	LocalDateTime
-	DateTimeFormatter
-	Duration
-	Period
-
 java.util
     Scanner
     Date        (deprecated)
@@ -1475,30 +1467,30 @@ Exception Handling
             emp = new Employee();
             emp.setName("Lavanya"); //NullPointerException is avoided.
 
-                public void processHike(Employee emp){
-                    if(emp!=null){
-                        emp.setBasic(emp.getBasic()+10000); // NullPointerException is avoided
-                    }
+            public void processHike(Employee emp){
+                if(emp!=null){
+                    emp.setBasic(emp.getBasic()+10000); // NullPointerException is avoided
                 }
+            }
 
         
         Checked Exceptions
 
             all exception classes that are NOT
-            dereived from RuntimeException class are
+            derived from RuntimeException class are
             identified as Checked exceptions.
         
             if you do not handle checked exceptions, the compiler will give errors.
 
             if a method is supposed to raise
             checked exception, the compiler will
-            forces to handle checked exceptions
+            force us to handle checked exceptions
 
             checked exceptions must be handled, they cannot be avoided.
 
             eg:
-                download a file, IOException
-                database connection broken.   SQLException
+                download a file,                IOException
+                database connection broken.     SQLException
 
                 try{
                     ....the code that may raise an exception     
@@ -1506,21 +1498,22 @@ Exception Handling
                     ..do the alternate or display a user understandable message.
                 }
 
+======================================================================================================
+        User Defined Exceptions
 
-        user Defined Excepitons
-
-            1. create a class which should be derived from java.lang.Exception
+            1. create a class which should be derived from java.lang.Exception or java.lang.RuntimeException
             2. write a constructor that takes a String parameter.
             3. call the super class constructor by passing this String to it.
 
             create a checked exception
             
-            class MyCheckedException extends Exception {
-                  
-                MyCheckedException(String errMsg){
-                    super(errMsg);
+            eg:
+                class MyCheckedException extends Exception {
+                    
+                    public MyCheckedException(String errMsg){
+                        super(errMsg);
+                    }
                 }
-            }
 
             create an unchecked exception
 
@@ -1538,7 +1531,7 @@ Exception Handling
             "throw" keyword is used to raise an exception
                 throw new MyCheckedException("error message");
 
-            "throws" keyword is used to tranfer the exception
+            "throws" keyword is used to tranfer (delegate) the exception handling responsibility
             from a method to its caller method.
 
 
@@ -1559,16 +1552,372 @@ a) multi-catch exception
 
 b) try-with-resources
 
-    try(declare closable resourceses here....){
+    try (declare closable resourceses here....){
                     ........................
     }catch(....){
 
     }
 
-    the closable resource will be clsoe automatically.
+    the closable resource will be close automatically.
 
     a Resource has to implement java.lang.Closable interface
     to be recognized as closable.
 
 
+
+java.time package (JDK 8) - DateTime API
+----------------------------------------
+	+ LocalDate
+	+ LocalTime
+	+ LocalDateTime
+	+ DateTimeFormatter
+	+ Duration
+	+ Period
+
+
+    LocalDate
+        default format is yyyy-MM-dd.
+
+        now() : static method that return system date.
+        of(year, month, day)
+        parse(string-form-date)
+
+        getDayOfMonth()
+        getDayOfYear()
+        getMonthValue()
+        getYear()
+
+        plusDays()
+        plusMonths()
+        plusYears()
+
+        now(), of(), parse() are known as "Factory method", which will return object of the same class.
+
+    LocalTime
+    LocalDateTime
+
+    DateTimeFormatter
+        format()
+        ofPattern(formatString)
+    Duration
+    Period
+        between(localDate1, localDate2)
+        getDays()
+        getMonths()
+        getYears()
+
+    ZoneId
+        of()
+
+    DateTimeFormatter                                        
+        .ofPattern(String pattern);
+
+            d           day                             
+            dd          day with leading zeros          
+            ddd         day in words
+
+            M           month
+            MM          month with leading zeros
+            MMM         Three lettered Month name
+            MMMM        comple month name
+
+            yy , yyyy   Year
+
+            h,hh        hour in 12 hr format
+            H,HH        hour in 24 hr format
+
+            mm          min
+
+            ss          sec
+
+
+                                   Regular Expressions
+						           --------------------
+                                    (java.util.regex)
+
+A regular expression defines a search pattern for strings. The short form for regular expression 
+is regex. 
+The search pattern can be anything from a simple character, a fixed string or a complex 
+expression containing special characters describing the pattern. 
+The pattern defined by the regex may match one or several times or not at all for a 
+given string.
+Regular expressions can be used to search, edit and manipulate text.
+It is mainly for validations.
+
+
+	.	any single character
+	\d	single digit from 0 - 9
+	\D	single character except digit
+	\s	space
+	\S	single character except space
+	[ ]	single character of given choice or range
+		eg: 	[A-Z]           any uppercase alphabet
+			    [abcdA-E]       a,b,c,d,A,B,C,D,E
+			    [0-9]           any digit
+	[^ ]	single character except within the range
+		eg:	[^ 1-5]         any digit other than 1,2,3,4,5
+
+occurance indicaters:
+	
+	?	0 to 1 time
+	*	0 to any no. of times
+	+	1 to any no. of times
+	{ n }	exactly 'n' times.
+	{ , m}	max. 'm' times and min. is '0'.
+	{n, m}	min. 'n' times and max. is 'm' times.
+
+eg:
+
+	mobile number	"\d{10}"
+	but in java, we must say "\\d{10}"
+
+	but first digit cannot be 0. so , it must be given as ...	"[1-9]\\d{9}"
+
+	vehicle number	eg: AP31 CK 9916
+				        AP31CK   1
+        [1-9]
+
+		[A-Z]{2} \d{2} [A-Z]{2} \s\d{, 3}
+
+	aadhar id		eg: 8414 6320 8422
+		\d{4} \s \d{4} \s \d{4}
+        [1-0]\d{3} \s \d{4} \s \d{4}
+
+java.util.regex package:
+------------------------------
+
+a) Pattern class:		to represent regular expression.
+-----------------------
+	methods:
+	-------------
+	i)	public static 	Pattern 	compile(String   regexPattern)
+			it checks whether any small part of pattern is matching or not.
+	
+b) Matcher class:
+    methods:
+    i) public static   boolean 	matches(pattern, String)
+			it checks whether the entire string should exactly match the pattern.
+
+split method (of java.lang.String)
+    i) String [] split(String)
+            will extract the String based on the pattern specified.
+
+
+    public class RegExDemo {
+        public static void main(String [] args) {
+            String mobile = "9247175823";
+            String mobile2 = "92471";
+
+
+            // System.out.println(mobile.matches("[1-9][0-9]{9}"));
+            // System.out.println(mobile.matches("[1-9][0-9]{9}"));
+
+            Pattern mobP = Pattern.compile("[1-9][0-9]{9}");
+            Matcher m1 = mobP.matcher(mobile);
+            System.out.println(m1.matches());
+
+            String passage = "I have to port 9247212540 into a new 9247212539";
+            Matcher m2 = mobP.matcher(passage);
+            System.out.println(m2.find());
+        }
+    }
+
+
+                                    Generics
+							        --------
+These are called as ADT	(abstract data types)
+
+when there is a logic which is indepedent of datatypes, then we can use ADT. 
+eg: Sorting on int's, float's, double's or char's are same.
+generics are implemented using angular bracktes. < >. The imaginary datatype is represented as T. 
+eg: <T>.
+if we have two imaginary datatypes then <T1, T2>
+
+generics do not support primitive types.
+T can be Book, Car, ComplexNumber, Employee etc.,
+but not with int, char, float, double.
+if it is inevitable, we may use Wrapper classes.
+
+
+                                    Collection API (Collection Framework)
+                                    --------------------------------------
+                                            (java.util package)
+
+API  (Application Programming Interface)
+    It is a group of pre-defined interfaces, abstract classes.
+    They provided implementation classes also.
+
+
+It is a structured way of storing group of objects.
+
+Collection means group of objects
+There are two types of data structures
+
+Linear:  
+	Objects are stored in a linear fashion
+	Objects can be numbered which we call as index
+	Linear data structure supports index based operations.
+
+Advantages:
+	Linear data structure supports sequential access 
+	Also Supports random access.
+
+Non linear:
+    Not in linear fashion so we do not have index here and 
+    thus we cannot access them randomly.
+
+Few of the classes are grouped into collection
+
+Collections are divided into 3 parts:
+	
+	a) Declaration Part: 
+	Here we have interfaces 
+
+                               Collection API Diagram
+
+
+                                       Iterable (I)
+                                            |
+                                       Collection (I)
+                         ___________________|________________________           
+                        |                   |                       |
+                    List (I)               Set (I)               Queue (I)
+        ________________|____________________
+        |                   |               |
+    ArrayList (C)       LinkedList (C)    Vector (C)
+
+
+
+
+	b) Implementation part: 
+		Set<-- HashSet,LinkedHashSet.
+		SortedSet<---------Treeset
+		List<------ArrayList,LinkedList
+
+
+	Collection interface methods:
+       	{ size(), contains(object), add(object), remove(object) }
+
+    List allow duplicate elements.
+	ArrayList-->interally uses an expandable array to store the elements.
+	If there are too many insertions and deletions LinkedList is used.
+	If there are too many retrievals arrayList will perform better.
+    Vector is a legacy class.
+
+    ArrayList class
+        DEFAULT_CAPACITY = 10
+        elementData is an Object[] where the data of array list is stored.
+        everytime the grow() method is called, the array is extended by 50%.
+        newCapacity = oldCapacity + (oldCapacity >> 1);
+
+        methods:
+        --------
+        add()
+        isEmpty()
+        size()
+        remove(index)
+        set(index, value)
+        get(index)
+        clear()
+        equals()
+        indexOf(value)
+        lastIndexOf()
+        toArray() : convert array list into an array.
+        sort()
+
+    LinkedList:
+    -----------
+        it is in the form of linked list.
+        it can be used when you are having frequent updations.
+
+        1) addFirst()
+        2) addLast()
+        3) removeFirst()
+        4) removeLast()
+
+    Vector:
+    -------
+        default capacity = 10
+        when a new elements is added when the existing cells are filled, the capacity is
+        DOUBLED.
+
+    What is the difference between Vector and ArrayList?
+
+    Iterator:
+        which allows to iterate through a collection.
+
+        iterator()
+        hasNext()
+        next()
+
+    What is the difference between iterator and enhanced for?
+
+
+Set:
+-------
+    Set will not allow duplicate elements where as list will allow the same.
+
+	HashSet --> Order is undefined.
+	LinkedHashSet--> Insertion Order
+	TreeSet-> maintains sorted order
+        null is not allowed in TreeSet. we get NullPointerException.
+
+    index based retrieval is not possible.
+
+Queue:
+    FIFO    (first in, first out)
+    insertions will happen at begining.
+    deletions also happend at beginning.
+PriorityQueue
+
+ArrayDequeue
+
+
+
+Map:
+------
+			  Map Diagram 
+
+	Maps are used to store key-value pair data. (It is also called as Dictionary)
+	In map, keys are not sorted in order
+	In sorted map, keys are in sorted order 
+    key cannot be duplicated.
+    value can be duplicated.
+	index based retrieval is not possible.
+    value can be retrieved if a key is given.
+
+    put(key,value)
+    get(key)
+    set(key,value)
+    remove(key)
+    size()
+    contains(key)
+    keySet() : return all keys
+    values() : return all values
+    containsKey()
+    containsValue()
+    entrySet() : entry means combination of key and value
+    
+
+    implementation classes:
+        HashMap
+        LinkedHashMap
+        TreeMap
+        HashTable
+
+
+java.util.Collections class:
+----------------------------
+1) sort()
+2) binarySearch(list, key)
+3) fill(list, object)
+
+    java.lang.Comparable interface:
+    --------------------------------
+    it contain only one abstract method
+    
+    public int compareTo(T object)
+
+    The class should know how do you want to sort.  (intenally)
+    The class must implement java.lang.Comparable interface.
 
