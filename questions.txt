@@ -32,7 +32,8 @@ exception class hierarchy.
 
 collection api hierarchy.
 
-
+why string is immutable?
+	refer this article : https://www.baeldung.com/java-string-immutable
 
 
 
@@ -42,3 +43,19 @@ what are the new features of java 8?
 
     + join() method in String class
     + StringJoiner class
+
+What is the difference between Vector and ArrayList?
+
+What are the different ways to print the linked list in reverse order?
+
+What is the difference between iterator and enhanced for?
+
+What is the contract between equals() and hashcode()?
+
+What is the difference between comparable or comparator?
+
+Company-A                                       Company-B
+
+Book                                main()
+    id comparision                          arrange the books in title order
+

@@ -69,7 +69,7 @@
     (using stringbuilder)
 
 16) write a function to check whether the given string contain only digits.
-============================================================================
+===========================================================================
 17) ExceptionDemo2.java 
         avoid NumberFormatException by using java.util.regex
 
@@ -81,6 +81,7 @@
                   receive(int qty)
 
         make sure that the stock level should not come below 5 items.
+===========================================================================
 
 
 

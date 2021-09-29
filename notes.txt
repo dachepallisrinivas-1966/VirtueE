@@ -1779,13 +1779,15 @@ Collections are divided into 3 parts:
                                        Iterable (I)
                                             |
                                        Collection (I)
-                         ___________________|________________________           
-                        |                   |                       |
-                    List (I)               Set (I)               Queue (I)
-        ________________|____________________
-        |                   |               |
-    ArrayList (C)       LinkedList (C)    Vector (C)
-
+                         ___________________________________________|________________________           
+                        |                                           |                       |
+                    List (I)                                    Set (I)               Queue (I)
+        ________________|____________________                       |
+        |                   |               |                       | HashSet (c)
+    ArrayList (C)       LinkedList (C)    Vector (C)                | LinkedHashSet (c)
+                                                                    | SortedSet (I)
+                                                                        |
+                                                                        |___ TreeSet (c)
 
 
 
@@ -1869,14 +1871,21 @@ Queue:
     insertions will happen at begining.
     deletions also happend at beginning.
 PriorityQueue
-
 ArrayDequeue
 
 
 
 Map:
-------
-			  Map Diagram 
+----
+                        Map (I)
+                          |
+        ----------------------------------------------------------
+        |                   |                       |
+    HashMap             LinkedHashMap           SortedMap (I)
+                                                    |
+                                                 TreeMap
+
+
 
 	Maps are used to store key-value pair data. (It is also called as Dictionary)
 	In map, keys are not sorted in order
@@ -1903,7 +1912,7 @@ Map:
         HashMap
         LinkedHashMap
         TreeMap
-        HashTable
+        HashTable       (Legacy class)
 
 
 java.util.Collections class:
@@ -1920,4 +1929,61 @@ java.util.Collections class:
 
     The class should know how do you want to sort.  (intenally)
     The class must implement java.lang.Comparable interface.
+
+
+Design Patterns:
+----------------
+    a) creational design Patterns
+    b) behavioural design Patterns
+    c) structural design patterns
+
+
+Progamming-To-Interfaces: (Coding Standards)
+--------------------------------------------
+    Set<String> set = new HashSet<>();
+
+
+There is a contract between equals() and hashcode() method.
+
+
+Comparable interface:
+----------------------
+    It provide one abstract method.
+
+    int  compareTo(T  o)
+
+Comparator interface:
+---------------------
+    int compare(T o1, T o2)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Ashok Rathore
+Deepali Jain
+Harshavardhan
+Milind Jha
+mahaboob hasan
+prasahnt arya
+deepak kumar mandal
+
+
+
+
+Abhishek Soni   
+Amar            - Not responding    
+Ganesh          
+Ratnesh         - Not responding
+
 
