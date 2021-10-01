@@ -54,8 +54,11 @@ What is the contract between equals() and hashcode()?
 
 What is the difference between comparable or comparator?
 
-Company-A                                       Company-B
+what is TDD and BDD?
 
-Book                                main()
-    id comparision                          arrange the books in title order
+what is Serialazation?
+
+what is transient keyword?
+
+
 

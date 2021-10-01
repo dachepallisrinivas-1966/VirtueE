@@ -5,7 +5,7 @@ import java.util.Objects;
 public class Book implements Comparable<Book> {
 	private int id;
 	private String title;
-	private double price;
+	private Double price;
 	
 	public Book() {
 		/* default constructor */
@@ -27,10 +27,10 @@ public class Book implements Comparable<Book> {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public double getPrice() {
+	public Double getPrice() {
 		return price;
 	}
-	public void setPrice(double price) {
+	public void setPrice(Double price) {
 		this.price = price;
 	}
 	@Override

@@ -82,6 +82,33 @@
 
         make sure that the stock level should not come below 5 items.
 ===========================================================================
+19) create a text file. store the following contact information in the CSV format.
+    
+    contact.txt
+        srinivas,srinivas@gmail.com,54
+        divya,divya@yahoo.com,19
+        sravya,sravya@gmail.com,20
+        naveen,naveen@gmail.com,21
+        kumar,kumar@yahoo.com,19
+
+    write a program to read contact.txt and write only name and age in another file new-contact.txt
+
+20) create a text file. store some information in it.
+    write a program to print the number of characters, words, lines in it.
+
+21) create a text file with the following content.
+
+    Geetha Madhuri,Sravana Bhargavi,Suneetha
+    Chitra,Suseelamma,Janakamma,Leela
+    Sreya Ghoshal,Lata Mangeshkar
+
+    write a java program to read the above file and create a new text file that contain 
+    one name per line.
+
+
+
+
+
 
 
 

@@ -1955,6 +1955,196 @@ Comparable interface:
 Comparator interface:
 ---------------------
     int compare(T o1, T o2)
+================================================================================================
+
+BDD : behavioural driven development
+TDD : test driven development
+
+
+
+                                        Multi-Layered Architecture
+                                        --------------------------
+ui
+excep
+pojo / model
+service
+dao
+
+
+Presentation (UI)    <===========>      Service Layer         <========>     Data Access Layer     <=======>  DataStore
+Layer                               (perform validations)                       (db logic)
+(input/output)
+
+DTO  (data transfer object)
+
+
+Service Layer
+    interface
+    one or more implementation classes
+
+    a) to perform validations
+    b) to call corresponding dao layer methods
+
+instead of real db, we will in-memory db like collections.
+
+DAO Layer
+    interface
+    one or more implementations
+
+    to store/retrieve/manage data in the datastore (collection/db etc.,)
+
+Exceptions
+    one or more user-defined exceptions (checked or unchecked)
+    exceptions must be handled only in the presentation layer.
+    if an exception occurred in any layer, propogate the exception to the previous layer.
+
+UI
+    display a menu to the end-user
+    call service layer methods
+    handle any exceptions
+
+java.util.Collections class:
+----------------------------
+1) sort()
+2) binarySearch(list, key)
+3) fill(list, object)
+
+
+                                    IOStreams   (java.io)
+                                    ---------------------
+                                    (Input Output Streams)  
+
+stream :   flow of data from one point to another point.
+
+java.io.File : used to convert the physical file in your file system to a java object.
+               File means both file and directory (folder) w.r.t. O/S
+methods:
+    1) exists()
+    2) isFile()
+    3) isDirectory()
+    4) File[] listFiles()
+    5) getName()
+    6) length()
+
+
+
+IOStreams are divided into 2 categories.
+1) text stream      (character steams)
+        used to store plain text.
+
+        Reader class
+            FileReader
+                int read()  : it will read one character at a time.
+            BufferedReader
+                String readLine() : it will read one line at a time
+        Writer class
+            FileWriter
+            PrintWriter
+
+    a file is known as resource.
+    whenever a resource is opened, it must be closed before coming out of the program execution.
+
+
+2) binary stream    (byte stream)
+        used to store objects, images, videos and audios.
+
+        InputStream class
+            FileInputStream
+            ObjectInputStream
+                readObject()
+        OutputStream class
+            FileOutputStream
+            ObjectOutputStream
+                writeObject()
+
+    Serialization       : storing an object into a file.
+    De-Serialization    : retrieving an object from the file.
+
+    To perform Serialization, the class should permit us.
+    
+    The class whose objects are to be stored in a file, must be inherited from
+    java.io.Serializable interface.
+    if not, we get NotSerializableException 
+
+    Serializable is a null interface, means is does not contain methods.
+    It is also called as Marker Interface.
+
+    transient:
+        it is a keyword (modifiers) that indicates the property should NOT be serialized.
+
+
+                                Functional Interface:  (jdk 1.8)
+                                --------------------------------
+    It is an interface that contain only one abstract method.
+    it can be marked with @FunctionalInterface annotation.
+    so that compiler will not allow you to add any extra methods later.
+
+
+                                    Lambda Expressions (JDK 1.8)
+                                    ----------------------------
+
+it allows functonality to be passed as an argument to the function.
+it is a replacement of Anonymous class that implements a functional interface.
+(eg: Comparable, Runnable)
+
+components of lambda expressions:
+1) a comma-separated list of formal parameters enclosed in paranthesis
+2) we can omit paranthesis if it is a single parameter
+3) the arrow token ( -> ) is known as lambda operator
+4) a body which consists of a single expression, or statement block.
+
+
+Interface Arithmetic {
+    int add(int a, int b);
+    int diff(int a, int b);
+}
+
+
+class ArithmeticImpl implements Arithmetic {
+    @Override 
+    public int add(int a, int b) {
+        return a+b;
+    }
+    @Override
+    public int diff(int a, int b) {
+        return a-b;
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        ArithmeticImpl obj = new ArithmeticImpl();
+        System.out.println(obj.add(10, 5));
+        System.out.println(obj.diff(10, 6));
+    }
+}
+
+
+using Anonymous class:
+----------------------
+Interface Arithmetic {
+    int add(int a, int b);
+    int diff(int a, int b);
+}
+
+public class Test {
+    public static void main(String[] args) {
+       Arithmetic obj = new Arithmetic() {
+            @Override 
+            public int add(int a, int b) {
+                return a+b;
+            }
+            @Override
+            public int diff(int a, int b) {
+                return a-b;
+            }
+        };
+        System.out.println(obj.add(10, 5));
+        System.out.println(obj.diff(10, 6));
+        System.out.println(obj.add(10, 5));
+        System.out.println(obj.diff(10, 6));
+    }
+}
 
 
 
@@ -1970,20 +2160,43 @@ Comparator interface:
 
 
 
-Ashok Rathore
-Deepali Jain
-Harshavardhan
-Milind Jha
-mahaboob hasan
-prasahnt arya
-deepak kumar mandal
 
 
 
 
-Abhishek Soni   
-Amar            - Not responding    
-Ganesh          
-Ratnesh         - Not responding
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
