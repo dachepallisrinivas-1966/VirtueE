@@ -2073,6 +2073,21 @@ IOStreams are divided into 2 categories.
         it is a keyword (modifiers) that indicates the property should NOT be serialized.
 
 
+
+                                    java.nio
+                                    (New IO)
+                                    --------
+    Files
+        lines()
+        
+    Path
+    Paths
+
+
+
+
+
+
                                 Functional Interface:  (jdk 1.8)
                                 --------------------------------
     It is an interface that contain only one abstract method.
@@ -2145,6 +2160,231 @@ public class Test {
         System.out.println(obj.diff(10, 6));
     }
 }
+
+
+Built-in functional interfaces
+------------------------------
+eg: Comparable, Comparator, Runnable
+
+java.util.function package
+--------------------------
+interface           abstract method
+-----------------------------------------------------------------
+Consumer<T>         void    accept(T)
+Supplier<T>         T       get()
+Predicate<T>        boolean test(T)
+Function<T,R>       R       apply(T)
+UnaryOperator<T>    T       apply(T)
+BinaryOperator<T>   T       apply(T,T)
+
+
+                                    Streams
+                                    -------
+                                (java.util.stream)
+
+Stream is a flow of data from a data source.
+where data source can be an array or any other collection.
+streams once consumed we cannot be use it again.
+
+1) java.util.stream.Stream.of(array);
+    create a stream taken array as a data source.
+2) java.util.Collection::stream()
+    create a stream taken any collection like list,set as a data source.
+
+    Stream s1 = Stream.of(array);
+    Stream s2 = list.stream();
+    Stream s3 = set.stream();
+
+
+stream() and parallelStream() ?
+    stream() will operate on one core.
+    parallelStream() will operate on multiple cores. (hardware related)
+
+
+java.util.stream.Stream methods (operators):
+operators    accepts         returns             does                                       type
+-------------------------------------------------------------------------------------------------------
+1) forEach      a consumer      void                executes the consumer on each element   terminal operation
+2) collect      a Collector     a Collection        gather all elments in the stream into   terminal operation
+                                                    collection.
+3) reduce       BinaryOperator  java.util.Optional  execute the binary operator on each     terminal operation
+                                                    pair of element in the stream.
+
+                what is a Collector?
+                    Collectors.toList()
+                    Collectors.toSet()
+                    Collectors.toMap(KeyMaper, ValueMapper)
+
+        List<Employee> emps = new ArrayList<>();
+        emps.add(new Employee(....));
+        emps.add(new Employee(....));
+
+        (or)
+
+        List<Employee> emps = Arrays.asList(
+            new Employee(...),
+            new Employee(...),
+            new Employee(...),
+            ...
+        );
+
+        for(Employee employee : emps) {
+            System.out.println(employee);
+        }
+
+        (or)
+
+        emps.stream.forEach(e -> System.out.println(e));
+
+        println is also a consumer. so, we can simplify ... using method reference
+        emps.stream.forEach(System.out::println);
+        here we are not calling println, rather we are passing println function to System.out
+        and on every element println is executed.
+
+
+
+        create a map with empid as key and emp object as value:
+        -------------------------------------------------------
+        Map<Integer, Employee> empMap = 
+            emps.stream().collect(Collectors.toMap(e -> e.getEmpId(), e -> e));
+        System.out.println(empMap);
+
+        create a set from array list:
+        -----------------------------
+        Set<Employee> empSet = emps.stream().collect(Collectors.toSet());
+        System.out.println(empSet);
+
+
+        Stream s = Stream.of(new int[] {1,2,3,4,5,6});
+        Optional<Integer> sum = s.reduce( (x,y) -> x+y);
+        System.out.println(sum.isPresent() ? sum : null);
+
+        Optional<Employee> costlyEmployee = emps.stream().reduce( 
+            (e1, e2) -> e1.getSalary() > e2.getSalary() ? e1 : e2);
+        System.out.println(costlyEmployee.isPresent() ? costlyEmployee.get() : null);
+        
+        why Optional?
+            it helps to avoid NULL POINTER EXCEPTION.
+
+        Optional<Employee> senior = emps.stream().reduce( 
+            (e1, e2) -> e1.getHireDate().isBefore(e2.getHireDate()) ? e1 : e2);
+        System.out.println(senior.isPresent() ? senior.get() : null);
+
+
+    filter(Predicate)                   :   intermediate operation
+    map(Functional transformer)         :   intermediate operation
+    sorted(BinaryOperator)              :   intermediate operation   
+    flatMap(Functional transformer)     :   intermediate operation
+
+
+StreamAPIDemo.java          (vam-repo)       
+    books.stream().forEach(System.out::println);
+
+    books.stream().forEach( (b) -> {
+        b.setPrice(b.getPrice()*2);
+    });
+    books.stream().forEach(System.out::println);
+
+
+int [] a = {1,2,3,4,5};
+Stream s = Stream.of(a);
+BinaryOperator<Integer> bo = (a,b) -> a+b;
+s.reduce(o);        // return Optional<Integer> = 15
+    ((((1+2)+3)+4)+5) = 15
+
+to see a latest published book :
+    Optional<Book> latestPublishedBook = books.stream().reduce( (b1,b2) -> b1.getDateOfPublished().isAfter(b2.getDateOfPublished()) ? b1 : b2));
+    System.out.println(latestPublishedBook.get());  
+
+to see list of books whose price is less than 4000 :
+    books.stream().filter( b -> b.getPrice() <= 4000).forEach(System.out::println);
+
+to convert list into set :
+    Set<book> bookSet = books.stream().collect(Collectors.toSet());
+    System.out.println(bookSet);
+
+
+    List<Book> lessPricedBooks = books.stream()
+                                    .filter( b -> b.getPrice() <= 4000)
+                                    .collect(Collectors.toList());
+        System.out.println(lessPricedBooks)
+map :
+    int [] a = {1,2,3,4,5};
+    Stream.of(a).map( n->n*n ).forEach(System.out::println);        // 1,4,9,16,25
+    Stream.of(a).map( n->"Hello"+n).forEach(System.out.println);
+    
+    List<String> bookNames = books.stream().map( b -> b.getName()).collect(Collectors.toList());
+    System.out.println(bookNames);
+    (or)
+    List<String> bookNames = books.stream().map(Book::getName).collect(Collectors.toList());
+    System.out.println(bookNames);
+
+sorted :
+    using comparable :
+    books.stream().sorted().forEach(System.out::println);   
+    
+    using comparator :
+    books.stream().sorted( (b1,b2) -> b1.getDateOfPublished().compareTo(b2.getDateOfPublished()))
+            .forEach(System.out::println);
+
+flatMap :
+    if we have an array of arrays (stream of streams), and we want to flaten that into a 
+    single array (or stream), flatMap is used.
+
+    add a property is called authors.
+    private String[] authors;
+    add another constructor that takes authors along with other properties.
+    generate getters and setters for authors.
+    regenerate hashcode, equals and toString methods.
+
+    in the main program, create book objects using the newly added constructor and provide
+    authors of each book along with other details.
+
+    books.stream().map(Book::getAuthors)
+        .flatMap(b -> Stream.of(b.getAuthors()))
+        .distinct()
+        .forEach(System.out::println);
+
+
+
+
+List<Employee>  employeeList = new ArrayList<>();
+employeeList.add(new Employee(....));
+...
+
+
+for(Employee employee : employeeList) {
+    if (employee.getSalary() >= 5000) {
+        System.out.println(employee);
+    }
+}
+
+(or)
+
+Stream<Employee>  filteredStream = employeeList.stream()
+            .filter(emp -> emp.getSalary() >= 500);
+filteredStream.forEach(emp -> System.out.println(emp));
+
+
+methods:
+--------
+boolean                         allMatch(Predicate predicate)   
+boolean                         anyMatch(Predicate predicate)
+long                            count()
+Stream<T>                       distinct()
+static<T> Stream<T>             empty()
+Stream<T>                       filter(Predicate predicate)
+Optional<T>                     findAny()
+Optional<T>                     findFirst()
+void                            forEach(Consumer<T> action)
+Stream<T>                       limit(size)
+Stream<T>                       skip(size)
+Stream                          map(Function )
+Option<T>                       max(Comparator )
+Option<T>                       min(Comparator )
+Stream<T>                       sorted()
+Stream<T>                       sorted(Comparator )
+Object[]                        toArray()
 
 
 

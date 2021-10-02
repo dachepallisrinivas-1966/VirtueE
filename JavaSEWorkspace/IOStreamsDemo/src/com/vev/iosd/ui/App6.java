@@ -11,10 +11,12 @@ public class App6 {
 			 ObjectInputStream oos = new ObjectInputStream(fos);) {
 			System.out.println(oos.readObject());
 			
-		} catch (ClassNotFoundException | IOException exception) {
-			exception.printStackTrace();
+		} catch(ClassNotFoundException | IOException exception) {
+			exception.getMessage();
 		}
-
 	}
 
 }
+
+
+			
