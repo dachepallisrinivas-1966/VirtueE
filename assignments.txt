@@ -81,7 +81,7 @@
                   receive(int qty)
 
         make sure that the stock level should not come below 5 items.
-===========================================================================
+
 19) create a text file. store the following contact information in the CSV format.
     
     contact.txt
@@ -104,10 +104,64 @@
 
     write a java program to read the above file and create a new text file that contain 
     one name per line.
-=======================================================================================================
+
 22) combination of streams and map
 23) combination of streams and set
 24) nio and streams
+
+
+                            ORDER PROCESSING SYSTEM
+                            -----------------------
+customers
+    custno          n(3)    pk
+    custname        v(20)   nn
+    address         v(50)
+    phone           v(15)
+
+items
+    itemno          n(3)    pk
+    itemname        v(20)   nn
+    unitprice       n(7,2)  it should be non-zero and non-negative
+    opstock         n(4)    
+
+  ITEMNO ITEMNAME              UNITPRICE    OPSTOCK
+---------- -------------------- ---------- ----------
+       901 mouse                       100          0
+       902 webcam                      800          0
+       903 ram                        1200          0
+
+orders
+    orderno         n(3)    pk
+    custno          n(3)    fk    
+    orderdate       d       default should taken as system date (SYSDATE)
+    ordervalue      n(7,2)  it shoule be non-zero and non-negative
+
+  ORDERNO     CUSTNO ORDERDATE ORDERVALUE
+---------- ---------- --------- ----------
+         1        101 05-JUN-20     0
+         2        101 30-MAY-20     0
+         3            05-JUN-20     0
+
+orderdetails
+    orderno     n(3)     fk                                         
+    itemno      n(3)     fk
+    qty         n(3)    non-zero and non-negative
+    (orderno + itemno)   pk
+
+ORDERNO    ITEMNO    QTY
+---------- ---------- --------- 
+    1       901         3                   
+    1       902         5
+    1       903         2
+
+
+    2       901         1
+    2       902         5
+
+    3       901         10
+
+    
+
 
 
 

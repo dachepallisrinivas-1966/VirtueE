@@ -59,6 +59,10 @@ what is TDD and BDD?
 what is Serialazation?
 
 what is transient keyword?
+=================================================================================
+
+Normalization in RDBMS
+
 
 
 

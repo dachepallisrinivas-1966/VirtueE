@@ -2386,6 +2386,325 @@ Stream<T>                       sorted()
 Stream<T>                       sorted(Comparator )
 Object[]                        toArray()
 
+==============================================================================================================
+
+                                                    Module-2
+                                                    ---------
+oracle 11g express edition download link:
+----------------------
+https://www.youwindowsworld.com/en/downloads/database/oracle/oracle-database-express-edition-11g-release-2-windows-64-bit/download-256-oracle-database-express-edition-11g-release-2-64-bit                                                    
+
+
+
+DBMS (Database Management System)
+---------------------------------
+data            : collection of raw facts 
+data processing : inserting/deleting/modifying/sorting/searching the data
+information     : output of data processing
+
+
+6 subjects - individual subject marks are given to class teacher     (data)
+progress report - individual subject marks, total marks, grade, rank (information)
+
+account statments (information) which is madeup of transactions (data)
+
+database    :   repository of data. 
+                collection of database objects.
+database objects : table, views, indexes, synonyms, sequences etc.,
+database management system (dbms) : collection of tools that are used to manage the database.
+
+
+DBMS models:
+------------
+1) hierarchical     (HDBMS)
+2) network          (NDBMS)
+3) relational       (RDBMS)
+
+RDBMS Products:
+---------------
+Oracle, MySQL, PostGre SQL      (Java Development)
+DB2, MS SQL Server
+
+Oracle 5            MS-DOS Based    
+Oracle 6            MS-DOS Based
+
+Oracle 7, 7.1, 8
+Oracle 8i           (i stands for internet)
+
+Oracle 9i           widely used
+
+Oracle 10g          Express Editions  (free - learners / trainers / colleges)
+Oracle 11g      -   g for grid computing
+
+Oracle 12c      -   c for cloud computing     
+
+Oracle 19c
+
+
+default user names:  (admin accounts)
+system
+sys
+
+
+Database users:
+---------------
+1) End users  (Naive Users)
+2) Application Developers
+3) Adminstrators - installing, creating and managing user accounts, managing databases, performance tuning
+
+from oracle 10g onwards, they offer one special account (contain sample tables)
+user name : hr
+password : hr
+
+All RDBMS products use only one language SQL.
+SQL stands for Structured Query Language.
+
+
+SQL Commands are classified as ...
+1) DDL  (data definition language) commands     [CREATE | RENAME | ALTER | TRUNCATE | DROP]
+2) DML  (data manipulation)                     [INSERT | UPDATE | DELETE]
+3) DCL  (data control)                          [GRANT | REVOKE]
+4) DQL / DRL  (data query / data retrieval)     [SELECT]
+5) TCL  (Transaction control)                   [COMMIT | ROLLBACK | SAVEPOINT]
+
+
+Features of SQL:
+----------------
+1) SQL is Case InSensitive Language.
+2) Clauses must be given in different lines.
+3) Table names are plural.
+4) SQL commands must be terminated by a semi-colon(;)
+
+creating a table:
+-----------------
+CREATE   TABLE   tablename
+(columnname    datatype,
+ columnname    datatype,
+ .....
+);
+
+rules for constructing an identifier name:
+------------------------------------------
+identifier name can be the name of table, column etc.,
+
+1. max. of 30 characters
+2. must begin with an alphabet.
+3. can contain digits also. (this is not recommended)
+4. except undescores, no other special symbol is allowed.
+5. reserved words are not allowed.
+
+
+SQL Data types:
+----------------
+1) CHAR([w])    : to store fixed-length values, whose width can be max. of 2000 characters.
+                  default width 1.  (spaces are embedded)
+2) VARCHAR(w)   : to store varying-length values, whose width can be max. of  4000 characters.
+   VARCHAR2(w)
+
+   till oracle 6 version, it was called as VARCHAR.
+   later on oracle calling it as VARCHAR2.
+
+3) NUMBER(w [,s])   numeric values upto width 'w' and scale 's'.
+4) DATE         : to store date values within range Jan 1 st 4712 B.C. to 31 st Dec 9999 A.D.
+                  default date format is dd-mon-yyyy   (eg: 04-oct-2021)
+
+5) LONG         : to store large amount of data upto 2GB.
+                  only one LONG column is allowed per table.
+6) RAW          : to store binary data such as images, pictures upto 2000 bytes.
+7) LONG RAW     : LONG + RAW
+
+INSERT: 
+1) to add new rows.
+2) character and date literals must be enclosed within single quotes.
+
+syntax:
+-------
+INSERT   INTO  tablename  [ (col-1, col-2, ...) ]
+VALUES   (value-1, value-2, ....);
+
+SELECT:
+-------
+to retrieve data from the table.
+using SELECT, we can perform RELATIONAL ALGEBRA Operations.
+
+1. projection   :   selecting few columns
+2. restriction  :   selecting few rows that meet a criteria
+3. union
+4. intersect
+5. minus (difference)
+6. join         :   retreiving data from multiple tables that share relation ship
+7. cartesian product (cross-product)
+
+syntax:
+-------
+SELECT   column-list/*
+FROM     tablename;
+
+UPDATE:
+--------
+TO MODIFY ROWS.
+
+UPDATE   tablename
+SET  col-1 = value-1  [, col-2 = value-2 ,....]
+[WHERE  condition];
+
+
+DELETE:
+-------
+to delete rows.
+
+DELETE  FROM  tablename
+[WHERE   condition];
+
+
+TRUNCATE  TABLE:
+-----------------
+to delete all rows from the table 
+
+TRUNCATE  TABLE  tablename;
+
+
+DROP TABLE:
+-----------
+DROP TABLE tablename;
+
+                                Normalization:  (database design)
+                                ----------------------------------
+is all about spliting a table into smaller multiple tables.
+
+1NF   : multi-valued columns are not allowed and should have primary key
+2NF   : 1NF && functional dependency
+3NF   : 2NF && not transitive dependency
+
+
+                                    Integrity Constraints
+                                    ---------------------
+These are conditions given for a column (or) combination of columns.
+During DML operations, if we violate any of these rules, oracle server generate constraint-violation
+error messages.
+
+constraints:
+----------------------
+1) NOT NULL
+2) UNIQUE
+3) PRIMARY KEY
+4) FOREIGN KEY   (REFERENCES)
+5) CHECK  (condition)
+
+constraint options:
+---------------------
+do not allow constraint names.
+
+1) DEFAULT
+
+primary key:   (not null && unique)
+-----------------------------------------
+1) is used to identify uniquely each row
+2) a table can have only one primary key
+3) null values are not allowed
+4) duplicate values are not allowed
+5) it is a single column or combination of columns
+
+
+depts - { deptno - (p), dname, loc }
+
+foreign key :
+----------------------------------------
+1) used to establish a relation between parent (master | independent) and child tables (dependent)
+2) it always present in child table
+3) it is a column or combination of columns   
+4) null values are allowed
+5) duplicates are also allowed.
+6) every foreign key must be defined as primary key or unique key in it's parent table.
+7) a table can have many foreign key
+
+emps - { empno - (p), ename, salary - min. is 5000, deptno - (f) }
+
+
+ALTER   TABLE:
+===============
+to modify the structure of the table.
+
+WE CAN ADD
+    new columns
+    new constraints
+WE CAN REMOVE
+    existing columns
+    existing constraints
+WE CAN MODIFY
+    column types, size
+
+syntax:
+-------
+ALTER   TABLE  tablename
+[ADD | MODIFY | DROP | RENAME]   column specification;
+
+
+SELECT:
+-------
+SELECT command can perform the following 4 operations.
+a) arithmetic operations
+b) column aliases
+    alternate name given for columns in the output of SELECT command.
+    column aliases must be enclosed within double quotes unless it is a single word.
+    optionally we may use "AS" keyword after the column name in the SELECT list.
+
+c) concatenated columns
+    combining two or more columns.
+    using concatenation operator ( || )   - double pipe symbol
+d) literals
+    literals must be enclosed within single quotes.
+    it is repeated for each row in the output of the select command.
+
+null:
+-----
+if a column lacks it's value during insertion, it is said to be null.
+null means either unassigned, unpredicted or undetermined.
+null is not same as ZERO.
+it occupy ONE BYTE in the oracle internal storage overhead.
+any operation performed with NULL value, leads to NULL result.
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
