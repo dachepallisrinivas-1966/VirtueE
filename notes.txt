@@ -2664,6 +2664,189 @@ null is not same as ZERO.
 it occupy ONE BYTE in the oracle internal storage overhead.
 any operation performed with NULL value, leads to NULL result.
 
+nvl():
+-------
+    nvl(col/val/expr, non-null-value)
+
+distinct qualifier:
+-------------------
+    to eliminate duplicate rows in the output.
+
+operators:
+-----------
+1) arithmetic operators
+    +   -   *   /   
+2) relational operators
+    >   <   =   >=  <=  != (or) <>
+3) logical operators
+    and     or  not
+4) sql operators
+        a) BETWEEN   value-1  AND  value-2
+        b) IN  (value-1, value-2, ....)
+        c) LIKE  'character pattern'
+                i) %    replace 0 or more unknown characters
+                ii) _   replace single unknown character
+        d) IS NULL
+
+        e) NOT BETWEEN   value-1  AND  value-2
+        f) NOT IN  (value-1, value-2, ....)
+        g) NOT LIKE  'character pattern'
+                i) %    replace 0 or more unknown characters
+                ii) _   replace single unknown character
+        d) IS NOT NULL
+
+ORDER BY:
+---------
+the order of retrieval of rows using SELECT statement is insignificant. 
+However we can use ORDER BY clause to specify the sorting order. 
+If used, it must be the last clause in the SELECT statement.
+
+
+Library Functions:
+------------------
+1) mathematical functions
+    a) power(x, y)
+    b) sqrt(n)
+    c) abs(n)
+    d) round()
+    e) trunc()
+    f) ceil()
+    g) floor()
+
+2) character functions
+    a) length()
+    b) upper()
+    c) lower()
+    d) initcap()
+
+3) date functions
+    sysdate : return the system date
+    
+    a) months_between(date-1, date-2)
+    b) last_day(date)
+    c) next_day(date, 'week day name')
+
+4) conversion functions
+    a) to_char(date, 'date picture')
+
+5) functions that accept any datatype as input
+    a) decode (col/expr, search-1, result-1, search-2, result-2, ...., default)
+    
+6) group functions (aggregate functions)
+    a) sum()
+    b) avg()
+    c) min()
+    d) max()
+    e) count()
+
+
+GROUP BY clause:
+    used to divide rows into groups.
+    on each group we can get aggregate information.
+
+HAVING clause:
+    used to filter rows after grouping.
+
+JOIN:
+    to retrieve data from multiple related tables.
+
+
+select employee_id, department_id, department_name, salary
+from employees
+join departments
+using (department_id);
+
+select employee_id, E.department_id, department_name, salary
+from employees E
+join departments D
+on (E.department_id = D.department_id);
+
+
+left outer join:
+    to get the missing rows in join operator.
+
+    select employee_id, department_id, department_name, salary
+    from employees
+    left outer join departments
+    using (department_id);
+
+
+
+sub query:
+----------
+select col-1, col-2, ...
+from  tablename
+where col = (select col from tablename);
+
+the sub query (inner query ) is executed first. the result is passed to the main query (outer query).
+
+views:
+-------
+a view is a virtual table.
+it is like a window through which we can see the data from an underlying table known as base table.
+a view does not contain any data on it's own.
+it is stored as select statement only.
+
+
+create view highly_paid_employees
+as
+select employee_id, first_name, salary
+from employees
+where salary > 10000;
+
+select * from highly_paid_employees;
+
+
+sequence:
+---------
+to generate sequence numbers.
+
+create sequence department_id_seq
+start with 280
+increment by 10
+maxvalue is 350;
+
+nextval pseudo column is used to generate next value from the sequence.
+currval pseudo column is used to retrieve current value from the sequence.
+
+index:
+------
+it is meant for faster searching.
+index is created automatically for primary key column.
+
+create index job_id_idx
+on employees(job_id);
+
+select * from employees
+where job_id = 'IT_PROG';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
  
