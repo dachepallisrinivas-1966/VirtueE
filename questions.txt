@@ -63,6 +63,18 @@ what is transient keyword?
 
 Normalization in RDBMS
 
+what is correlated sub query?
+
+second highest salary
+
+top 3 earners
+
+
+
+
+
+
+
 
 
 

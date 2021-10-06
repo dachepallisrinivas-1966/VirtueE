@@ -2780,6 +2780,14 @@ where col = (select col from tablename);
 
 the sub query (inner query ) is executed first. the result is passed to the main query (outer query).
 
+there are 2 types.
+a) single-row sub query
+        use =, >, < as comparision operator`
+b) multi-row sub query
+        use IN, > ANY, < ANY, > ALL, < ALL operators.
+
+
+
 views:
 -------
 a view is a virtual table.
@@ -2822,6 +2830,259 @@ where job_id = 'IT_PROG';
 
 
 
+
+PL SQL
+------
+Procedurel Language of SQL.
+
+PL SQL architecture:
+--------------------
+    diagram.
+
+PL/SQL block contain ..
+    a) SQL commands
+    b) PL/SQL constructs
+
+
+PL/SQL blocks are of 2 types.
+a) anonymous block
+b) named blocks.
+
+structure of PL/SQL anonymous block:
+------------------------------------
+DECLARE
+    variable declarations;
+BEGIN
+    statement(s);
+EXCEPTION
+    WHEN  exception_id   THEN
+        statement(s);
+END;
+        
+PL/SQL datatypes:
+-------------------
+number, varchar, date, long, boolean
+
+SELECT statement in PL/SQL:
+---------------------------
+SELECT   col-1, col-2, ...
+INTO     var-1, var-2, ...
+FROM     tablename
+[WHERE   condition]
+[GROUP   BY  col-1, col-2, ...]
+[HAVING  condition]
+[ORDER   BY col-1, col-2, ...];
+
+SELECT statement in PL/SQL should return only one row.
+otherwise it leads to exception
+
+
+pre-defined (built-in) exception id:
+-------------------------------------
+1) NO_DATA_FOUND
+2) TOO_MANY_ROWS
+
+
+control structures:
+
+IF  condition  THEN
+    statement(s)
+ELSE
+    statement(s)
+END  IF;
+
+
+IF  condition  THEN
+    statement(s)
+ELSIF  condition  THEN
+    statement(s)
+ELSIF  condition  THEN
+    statement(s)
+....    ....    ...
+ELSE
+    statement(s)
+END  IF;
+
+
+
+CASE  
+    WHEN  condition-1  THEN   statement(s)
+    WHEN  condition-1  THEN   statement(s)
+    WHEN  condition-1  THEN   statement(s)
+    ELSE  statement(s)
+END  CASE
+
+
+FOR   control_variable  IN   start_value .. end_value
+LOOP
+    statement(s);
+    [EXIT];
+END LOOP;
+
+
+WHILE   condition
+LOOP
+    statement(s);
+    [EXIT]
+END LOOP;
+
+
+
+-- display employee details whose employee id is 102
+-- calculate bonus
+-- if salary is more than 15000 then bonus is 15%
+-- if salary is more than 10000 then bonus is 8%
+-- otherwise bonus is 5%
+
+SET SERVEROUTPUT ON
+DECLARE
+    v_employee_id       number(4);
+    v_first_name        varchar2(10);
+    v_salary            number(5);
+    v_bonus             number(7,2);
+    v_percent           number(2);
+BEGIN
+    SELECT  employee_id, first_name, salary
+    INTO    v_employee_id, v_first_name, v_salary
+    FROM    employees
+    WHERE   employee_id =  102;
+    
+--    if v_salary > 15000 then
+--        v_bonus := v_salary * 15/100;
+--    elsif v_salary > 10000 then
+--            v_bonus := v_salary * 8 / 100;
+--    else
+--            v_bonus := v_salary * 5/100;
+--    end if;
+
+    CASE  
+        WHEN  v_salary > 15000 THEN v_percent := 15;
+        WHEN  v_salary > 10000 THEN v_percent := 8;
+        ELSE v_percent := 5;
+    END CASE;
+    
+    v_bonus := v_salary * v_percent/100;
+    
+    dbms_output.put_line('Employee Id = ' || v_employee_id);
+    dbms_output.put_line('Employee Name = ' || v_first_name);
+    dbms_output.put_line('Salary = ' || v_salary);
+    dbms_output.put_line('Bonus = ' || v_bonus);
+    
+EXCEPTION
+    WHEN  NO_DATA_FOUND THEN
+        dbms_output.put_line('No employee with id 1002');
+    WHEN  TOO_MANY_ROWS  THEN
+        dbms_output.put_line('More employees found');
+END;
+
+
+CURSOR:
+-------
+    +   it is private sql area in which rows returned by pl/sql select statement are stored.
+
+    +   declare the cursor
+        -   the select statement associated to the cursor is validated
+    +   open the cursor
+        -   select statement is executed and data returned to pl/sql memory
+    +   fetch one row at a time and process the row
+    +   close the cursor when all rows are processed
+
+BEGIN
+    FOR   i   IN   (SELECT  employee_id, first_name, job_id, salary
+                    FROM    employees
+                    WHERE   job_id = 'IT_PROG')    
+    LOOP
+        dbms_output.put_line('Employee Id = ' || i.employee_id);
+        dbms_output.put_line('First Name = ' || i.first_name);
+        dbms_output.put_line('Job Id = ' || i.job_id);
+        dbms_output.put_line('Salary = ' || i.salary);
+        dbms_output.put_line('---------------------------------------------------------------');
+    END  LOOP;
+END;
+
+
+BEGIN
+    FOR I IN ( SELECT  department_id, trunc(avg(salary),2) as average_salary
+                FROM    employees
+                GROUP   BY  department_id )
+    LOOP
+        dbms_output.put_line(i.department_id || ' -> ' || i.average_salary);
+    END LOOP;
+END;
+
+
+Named Blocks: (Stored SubPrograms):
+------------------------------------
+There are 2 types.
+a) stored procedure
+b) stored function
+
+A stored procedure is a PL/SQL block stored in the database with a name.
+A stored procedure can be called from client programs such as PL/SQL, Java and .Net Programs.
+
+Advantages:
+-----------------
+a) Reduced Network Traffic 	-   as name only passed from client to server
+b) Better Performance 		-   as it is loaded and stays in memory (SGA - Shared Global Area) so that 
+                                subsequent invocations can make use of procedure in memory. Procedures are 
+                                also stored in compiled format, which makes them run faster.
+c) Easy Maintenance		    -   as a change of business logic needs only a change to procedure in the database. 
+                                All client applications can immediately use new business logic.
+d) Security				    -   as it is possible to grant privilege to users to execute procedure even though 
+                                no privilege is granted on table, there is no need to grant privileges on the 
+                                table to others.
+
+
+
+CREATE OR REPLACE PROCEDURE raisesal (p_empno  IN  emp888.empno%type,
+                                      p_per    IN  number)
+IS
+        NO_EMPLOYEE     EXCEPTION;
+BEGIN
+    	UPDATE   emp888
+	    SET	  basic = basic + basic*p_per/100
+	    WHERE	empno = p_empno;
+
+        IF SQL%ROWCOUNT = 1 THEN
+           COMMIT;
+        ELSE
+           raise NO_EMPLOYEE;
+        END IF;
+EXCEPTION
+        WHEN NO_EMPLOYEE THEN
+             dbms_output.put_line('No Employee');
+END;
+
+
+begin
+   raisesal(1, 10);
+end;
+
+
+stored function:
+----------------
+it will return one value.
+
+CREATE  OR REPLACE  FUNCTION getname (p_employee_id  employees.employee_id%type)
+RETURN  employees.first_name%type
+IS
+	v_first_name	employees.first_name%type;
+BEGIN
+	SELECT	first_name
+	INTO	v_first_name
+	FROM	employees
+	WHERE	employee_id = p_employee_id;
+	
+    RETURN	v_first_name;
+EXCEPTION
+        WHEN  NO_DATA_FOUND THEN
+             RETURN 'Employee Not Found';
+END;
+
+
+packages:
+---------
+    collection of stored procedures, stored functions, user defined types etc.,
 
 
 
