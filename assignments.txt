@@ -110,7 +110,7 @@
 24) nio and streams
 
 
-                            ORDER PROCESSING SYSTEM
+25)                         ORDER PROCESSING SYSTEM
                             -----------------------
 customers
     custno          n(3)    pk
@@ -160,7 +160,18 @@ ORDERNO    ITEMNO    QTY
 
     3       901         10
 
-    
+26) update student program using Statement.
+27) delete student program using Statement.
+
+28) write a program to print no. of employees in each department.
+29) write a program to print the average salary of each job within each department.
+30) display first name, job title, department name, city of all employees who earn salary more than 10000.
+
+31) print the total salary of all employees working in department 50.
+
+
+
+
 
 
 

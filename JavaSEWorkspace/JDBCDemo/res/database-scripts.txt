@@ -1,0 +1,5 @@
+CREATE TABLE student
+(rollno number(3),
+ name   varchar2(10),
+ age    number(2)
+);

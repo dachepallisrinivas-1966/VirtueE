@@ -2701,6 +2701,20 @@ the order of retrieval of rows using SELECT statement is insignificant.
 However we can use ORDER BY clause to specify the sorting order. 
 If used, it must be the last clause in the SELECT statement.
 
+Transaction Control Language (TCL) Commands:
+--------------------------------------------
+Transaction is a logical unit of workdone. (LUW).
+a transaction may be 1 or multiple sql commands.
+there are 2 types.
+a) DDL transaction :    one ddl command makes up one transaction.
+                        it is automatically committed.
+b) DML transaction :    may contain one or multiple commands.
+
+commit :    to save the current transaction
+rollback :  to cancel the current transaction.
+
+
+
 
 Library Functions:
 ------------------
@@ -3083,6 +3097,57 @@ END;
 packages:
 ---------
     collection of stored procedures, stored functions, user defined types etc.,
+
+
+
+
+                                        JDBC
+                            (Java DataBase Connectivity)
+
+Java Application                                                    Database (RDBMS)
+
+data is stored in the form                                      data is stored in the form 
+of OBJECT.                                                      of TABLE.
+
+                                    JDBC API
+                        (JDBC Application Programming Interface)
+                                (java.sql package)
+
+
+API -   collection of interfaces, abstract classes.
+Sun microsystems was not providing any implementation classes.
+implementation classes should be provided by the DB Vendors (oracle, mysql, ms sql server etc.,)
+implementation classes are known as JDBC Drivers.
+implementation classes are generally supplied in the form of ".jar" (java archive) file(s).
+
+
+steps:
+------
+1) load the jdbc Driver
+2) establish connection
+3) fetch data from the database
+4) close the connection
+
+interfaces:
++   Connection
+    -   createStatement()
+    -   prepareStatement(sql)
++   Statement
++   PreparedStatement
++   ResultSet
+    -   next()  : to read one row at a time from the result set.
++   CallableStatement
+    -   to call stored sub programs
+
+
+
+
+
+
+
+
+
+
 
 
 
