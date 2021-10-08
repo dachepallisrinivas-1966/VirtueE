@@ -70,7 +70,13 @@ second highest salary
 top 3 earners
 
 
+what are various types of jdbc drivers?
+what is the difference between Statement and PreparedStatement?
+what is the ResultSet? What are the types of ResultSet?
+
 what is SQL injection attack?
+
+
 
 
 

@@ -20,15 +20,18 @@ public class App9 {
 			int empNumber, basic;
 			String choice;
 			
+			connection.setAutoCommit(false);
+			
 			while (true) {
-				System.out.print("Enter empno : ");
-				empNumber = scanner.nextInt();
+				System.out.print("Enter empno : ");		// 109
+				empNumber = scanner.nextInt();			// mehboob
 				System.out.print("Enter basic :" );
 				basic = scanner.nextInt();
 				
 				preparedStatement.setInt(1, empNumber);
 				preparedStatement.setInt(2, basic);
 				preparedStatement.executeUpdate();
+				
 				
 				System.out.println("Continue [Y/N] : ");
 				choice = scanner.next();

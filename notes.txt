@@ -3123,15 +3123,19 @@ implementation classes are generally supplied in the form of ".jar" (java archiv
 
 steps:
 ------
-1) load the jdbc Driver
+1) load the jdbc Driver     (optional from JDBC 4.0)
 2) establish connection
 3) fetch data from the database
 4) close the connection
 
 interfaces:
++   DatabaseMetaData
+    -   getDatabaseProductName()
+    -   getDatabaseProductVersion()
 +   Connection
     -   createStatement()
     -   prepareStatement(sql)
+    -   getMetaData();
 +   Statement
 +   PreparedStatement
 +   ResultSet
@@ -3139,6 +3143,44 @@ interfaces:
 +   CallableStatement
     -   to call stored sub programs
 
+LOB     (Large Object)
+    CLOB        (Character Large Object)
+    BLOB        (Binary Large Object)
+
+
+
+                                        Maven
+                                        -----
+It is a build tool.
+It is an automation tool for build process.
+
+It will download necessary jar files.
+
+Maven maintain a central repo that contain necrssary jar files for java developers.
+(mvnrepository.com)
+
+Every Maven project pom.xml. (project object model).
+Here we have to specify dependencies.
+
+run as -> Maven Install
+run as -> Maven Clean
+
+Maven goals:
++   clean
++   install
++   build
++   compile
++   test
+
+
+                                        Logging
+                                        -------
+log4j       
+
+1. define logger
+2. create a layout
+3. create an appender and link the layout to it
+4. link the appender to logger
 
 
 
