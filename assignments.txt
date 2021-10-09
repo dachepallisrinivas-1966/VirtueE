@@ -170,8 +170,17 @@ ORDERNO    ITEMNO    QTY
 31) print the total salary of all employees working in department 50.
 
 
+Mid Term Assessment:
+------------------------
+32) MovieManagementApp
+        Movie class ->  id, title, boxofficeCollection
 
 
+
+HTML-5
+--------
+
+    
 
 
 

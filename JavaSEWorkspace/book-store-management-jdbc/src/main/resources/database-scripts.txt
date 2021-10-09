@@ -1,0 +1,11 @@
+CREATE TABLE books
+(bcode    varchar2(4)    CONSTRAINT books_bcode__pk      PRIMARY KEY,
+ title  	 varchar2(20),
+ price    number(4)
+);
+ 
+ INSERT INTO books VALUES ('B101', 'Let Us C', 450);
+ INSERT INTO books VALUES ('B102', 'Rich Dad Poor Dad', 220);
+ INSERT INTO books VALUES ('B103', 'How to win friends', 260);
+ 
+ 

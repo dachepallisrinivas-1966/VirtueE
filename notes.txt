@@ -3182,6 +3182,123 @@ log4j
 3. create an appender and link the layout to it
 4. link the appender to logger
 
+appenders:
++   ConsoleAppender
+
+
+                                        Design Patterns
+                                        ---------------
+Design patterns are typical solutions to commonly occurring problems in software design. 
+
+1) Creational Design Pattern
+    +   Abstract Factory
+    +   Builder
+        -   Builder lets you construct complex objects step by step.
+    +   Factory Method
+        -   provides an interface for creating objects in a superclass, 
+            but allows subclasses to alter the type of objects that will be created.
+    +   Prototype
+        -   Lets you copy existing objects without making your code dependent on their classes.
+    +   Singleton
+        -   Only one instance can be created for a class
+
+2) Structural Design Pattern
+    +   Adapter pattern
+        -   allows objects with incompatible interfaces to collaborate.
+
+
+    
+3) Behavioural Design Pattern
+    +   Chain of Responsibility
+        -   Lets you pass requests along a chain of handlers. Upon receiving a request, each handler 
+            decides either to process the request or to pass it to the next handler in the chain.
+
+    +   Iterator
+        -   Lets you traverse elements of a collection without exposing its underlying representation 
+            (list, stack, tree, etc.).
+
+    
+
+BookStoreManagementApp  (JDBC Implementation)
+    +   DAO design pattern
+    +   Factory design pattern
+    +   Singleton design pattern
+
+
+
+                                            Web Development 
+                                            ---------------
+
+Web page    :   It is a document that is displayed in internet
+Web site    :   collection of web pages
+Web client  :   it is the software on which a user can see the website.
+                eg: browsers
+                (Chrome, Edge, Safari, FireFox, Opera etc.,)
+Two types:
+1) static web site
+        mostly display static content for every one.
+        content is rarely modified.
+2) dynamic web site
+        display dynamic content. (content is generated on-the-fly)
+        content is varied from user to user.
+
+    
+                                                HTML-5
+                                                ------
+HTML stands for Hypertext Markup Language.
+
+markup is done with tags.
+
+1) self-closing tags (un-paired tags)
+2) paired tags
+
+the html program file should be saved with ".html" or ".htm".
+
+html page contain two sections.
+a) head section
+b) body section
+
+
+html-5 should have DOCTYPE entry.
+
+element = open tag      + content               + close tag
+
+            <b>          this is bold               </b>
+
+Heading Tags:
+    <h1> to <h6>
+
+Formatting Tags:
+    <b>, <i>, <u>, <sub>, <sup>
+    <strong>    :   this is semantic tag.
+    <em>        :   this is semantic tag.
+
+<div> used to group elements.   (block element)
+<p> to put some text.   (block element)
+
+<span> is a place holder.  (inline element)
+
+lists:
+------
+1) ordered list (number list)
+2) unordered list (bullet list)
+
+
+tables:
+-----------
+<table>
+<tr>
+<td>
+<th>
+<thead>
+<tfoot>
+<tbody>
+
+
+
+
+
+
 
 
 

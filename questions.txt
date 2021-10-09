@@ -76,6 +76,21 @@ what is the ResultSet? What are the types of ResultSet?
 
 what is SQL injection attack?
 
+what are the various appenders available for logging?
+
+what is a layout in logging?
+
+-----------------------------------------------------------------------------------------
+
+what is the difference between element and tag?
+
+what is the difference between inline element and block element?
+
+what is the difference between <p> and <div>?
+
+what is the span?
+
+
 
 
 
