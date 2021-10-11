@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <style>
+        .error {
+            color : red;
+            margin-left : 5px;
+        }
+    </style>
+    <script>
+        function validate() {
+            let x = document.getElementById("uname").value;
+            if (x == "") {
+                document.getElementById('error').innerHTML = 'Name should not be blank';
+                return false;
+            }
+            if (x.length < 5) {
+
+                document.getElementById('error').innerHTML = 'Name should be atleast 5 characters';
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+    <form onsubmit="return validate()">
+        <div>
+            <label for="uname">User Name:</label>
+            <input type="text" id="uname"/>
+            <span id="error" class="error"></span>
+        </div>
+        <div>
+            <input type="submit" value="Submit" />
+        </div>
+    </form>
+</body>
+</html>

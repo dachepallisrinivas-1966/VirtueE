@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+
+    <script>
+        function changeContent() {
+            str = document.getElementById("para-1").textContent;
+            str += " - modified";
+            document.getElementById("para-1").innerHTML = str;
+        }
+    </script>
+</head>
+<body>
+    <p id="para-1">this is a sample paragraph</p>
+    <button type="button" onclick="changeContent()">Change Paragraph</button>
+</body>
+</html>

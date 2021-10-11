@@ -3285,7 +3285,7 @@ lists:
 
 
 tables:
------------
+--------
 <table>
 <tr>
 <td>
@@ -3293,6 +3293,106 @@ tables:
 <thead>
 <tfoot>
 <tbody>
+
+
+anchor tag:
+-----------
+<a href="url">link text</a>
+
+
+img tag:
+--------
+<img src="url" alt="message" width="" height="" />
+
+
+forms:
+-------
+<form method="get | post" action="url">
+<label>
+<input type="text | password | date | textarea | radio | checkbox">
+<button type="submit | reset | button">
+<select>
+
+id attribute    : used by client-side scripting technologies
+                  (javascript)
+name attribute  : used by server-side scripting technologies
+                  (java, .net, python)
+
+
+                                CSS
+                                ---
+It stands for Cascading Style Sheet.
+
+HTML : content
+CSS  : style
+
+types of CSS:
+----------------
+1) inline style sheet
+2) embedded (internal) style sheet 
+3) external style sheet                 (".css")
+
+
+CSS Selectors:
+--------------
+tag selector
+.   class selector
+#   id selector
+attribute selector
+psudo selector      (eg: .row:after)
+
+Media Queries:
+--------------
+@media
+
+
+                                                Javascript
+                                                ----------
+It is client-side scripting language.
+client means web client i.e., web browser.
+all javascript program are executed in the web browser.
+every web browser have a javascript engine (eg: V6 engine in chrome)
+javascript is a type-less (dynamic) langauge.
+
+Recent javascript evolved as a server-side scripting language (like java, .net etc.,)
+node js is provide runtime environment to execute javascript programs on the server.
+in MEAN stack, MERN stack - javascript is the base language.
+
+M       mongodb
+E       express js
+A/R     angular/react
+N       node js
+
+Java stack
+    angular
+    react
+
+every javascript program can be written in a separate ".js" file.
+".js" can be integrated to ".html" using "<script>" tag.
+
+
+pre-defined dialog boxes:
+--------------------------
+alert('message')
+
+DOM management:
+------------------
+DOM stands for Document Object Model.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

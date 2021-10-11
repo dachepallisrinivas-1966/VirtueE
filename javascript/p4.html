@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+
+    <script language="javascript">
+        function showName() {
+            str = document.getElementById("uname").value;
+            document.getElementById("result").innerHTML = "Your name is " + str + " !";
+        }
+    </script>
+</head>
+
+<body>
+    <div>
+        <label for="uname">Your name:</label>
+        <input type="text" id="uname" placeholder="your name" />
+    </div>
+    <div>
+        <button type="submit" onclick="showName()">Show</button>
+    </div>
+    <p id="result"></p>
+</body>
+
+</html>

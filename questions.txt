@@ -90,6 +90,9 @@ what is the difference between <p> and <div>?
 
 what is the span?
 
+what is the difference between id and name attributes?
+
+
 
 
 

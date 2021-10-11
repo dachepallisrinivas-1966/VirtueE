@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+</head>
+<body>
+    <form method="get" action="register.do">
+        <div>
+            <label for="uname">User Name:</label>
+            <input type="text" id="uname" />
+        </div>
+        <div>
+            <label for="pwd">Password:</label>
+            <input type="password" id="pwd" />
+        </div>
+        <div>
+            <label for="cpwd">Confirm Password:</label>
+            <input type="password" id="cpwd" />
+        </div>
+        <div>
+            <label for="gender">Gender:</label>
+            <input type="radio" id="m" name="g"/>Male
+            <input type="radio" id="f" name="g"/>Female
+        </div>
+        <div>
+            <input type="checkbox" id="p" />Do you have passport?
+        </div>
+        <div>
+            <label for="n">Country</label>
+            <select>
+                <option>India</option>
+                <option>USA</option>
+                <option>UK</option>
+                <option>Other</option>
+            </select>
+        </div>
+        <div>
+            <button type="submit">Register</button>
+        </div>
+    </form>
+</body>
+</html>
