@@ -3381,6 +3381,43 @@ DOM stands for Document Object Model.
 
 
 
+                                                Java EE
+                                                -------
+Java EE is all about specs given by (sun microsystems) oracle corp.
+specifications : what to do?
+
+Servlet and JSP API     -   Oracle Corp.
+    Implementations -   Apche Tomcat    (widely used)
+                        JBoss
+
+
+http://localhost:8081/ServletDemo/hello
+
+http://localhost:80801/ServletDemo/welcome?uname=Srinivas                           (query string)
+http://localhost:80801/ServletDemo/welcome?uname=Srinivas&age=56                    (query string)
+http://localhost:80801/ServletDemo/welcome?uname=Srinivas&age=56&gender=male        (query string)
+    Welcome Srinivas. You are a senior most employee.
+
+    if the is more than 50, he is senior most.
+
+
+ServletConfig
+    data stored in config object is available across all requests of a particular servet.
+ServletContext
+    data stored in context object is available across all servlets in the entire application.
+
+
+
+                                        Session Management
+                                        ------------------
+
+
+
+
+
+
+
+
 
 
 

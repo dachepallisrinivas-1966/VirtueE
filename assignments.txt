@@ -176,9 +176,20 @@ Mid Term Assessment:
         Movie class ->  id, title, boxofficeCollection
 
 
+33) Servlet Assignment
 
-HTML-5
---------
+Simple Interest Calculator
+
+    Principle:  [            ]
+    Time:       [            ]
+    Rate:       [            ]
+
+            [ Calculate ]
+
+    Simple interest : Rs. xxxx Only
+
+
+    
 
     
 
