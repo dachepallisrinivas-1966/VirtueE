@@ -3410,51 +3410,131 @@ ServletContext
 
                                         Session Management
                                         ------------------
+1) url rewriting        (outdated)
+2) hidden controls      (outdated)
+3) cookies              (so many drawbacks)
+4) session
+
+
+                                        Request Dispatcher
+                                        -------------------
+The RequestDispacher interface provides the facility of dispatching the request to another resource it may 
+be html, servlet or jsp.
+
++   forward(request, response)
++   include(request, response)
+
+RequestDispatcher rd = request.getRequestDispatcher(view);
+
+
+                                        JSP
+                                        ----
+Development Directory Structure     (depends on IDE)
+Deployment Directory Structure      (tomcat)
+
+(server)
+webapp
+    WEB-INF
+        classes     (*.class)
+        web.xml
+        lib         (*.jar)
+*.jsp
+*.html
+*.jpg, *.png
+
+
+life cycle methods:
+    jspInit()
+    jspDestroy()
+    _jspService()
+
+JSP Scripting elements
+    •	scriptlet tag		(<%	    java code 		%>)
+    •	expression tag		(<%=	expr			%>)
+    •	declaration tag		(<%!	variable/methods		%>)
+    •	directive tag		(<%@				%>)
+            @page
+
+jsp implicit objects:
+    +   out
+    +   request
+    +   response
+    +   exception
+    +   session
+    +   application
+    +   page
+    +   config
+    +   pageContext
+
+EL
+    stands for expression language.
+    $ { param.variableName }
+
+standard actions (action tags)
+    jsp:include
+    jsp:forward
+    jsp:param
+    jsp:useBean
+    jsp:setProperty
+    jsp:getProperty
 
 
 
 
+request         : data is available only in the current request of a user.
+session         : data is available through out the session of a particular user.
+application     : data is available across all users.
+
+
+                                            Java Bean
+                                            ---------
+Java Bean is a java class that should contain ...
+    + default constructor
+    + data members      (properties)
+    + setter and getter
+Java Bean can be integrated with jsp using jsp:useBean action tag.
 
 
 
+                                        MVC Design Pattern
+                                        ------------------
+
+Model       :   data                                (bean)
+View        :   user interface                      (jsp)
+Controller  :   control the flow of the project     (servlet)
 
 
+controller -> service -> dao -> db
 
 
+request dispatching in jsp:
+--------------------------------
+jsp:include
+jsp:forward
+jsp:param
 
 
+                                            JSTL
+                                            ----
+                                    (JSP Standard Tag Library)
 
+jstl-1.2 jar file must be integrated.
 
++   faster development
++   code reusability
++   no need of scriptlet tag
 
+you have to register the tag library using <%@ taglib %> directive.
 
+JSTL can be effectively used if we combine it with EL.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<c:set>
+<c:remove>
+<c:out>
+<c:if>
+<c:forEach>
+<c:forTokens>
+<c:choose>
 
 
 
@@ -3472,95 +3552,5 @@ ServletContext
 
 
  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

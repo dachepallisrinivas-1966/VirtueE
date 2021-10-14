@@ -189,6 +189,7 @@ Simple Interest Calculator
     Simple interest : Rs. xxxx Only
 
 
+
     
 
     

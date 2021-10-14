@@ -91,6 +91,28 @@ what is the difference between <p> and <div>?
 what is the span?
 
 what is the difference between id and name attributes?
+---------------------------------------------------------------------------------------
+
+what is request dispatching?
+
+how does a jsp file is executed internally?
+(translation)
+
+what are the jsp implicit objects?
+(9)
+
+what is the difference between servlet & jsp?
+
+how do you implement an MVC design pattern using servlet & jsp
+
+what are jsp standard actions?
+
+what are jsp scripting elements?
+(4)
+
+what is a java bean? how do you integrate with jsp?
+
+
 
 
 
