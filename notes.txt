@@ -3496,6 +3496,32 @@ Java Bean can be integrated with jsp using jsp:useBean action tag.
 
 
 
+                                            Servlet Filter
+                                            --------------
++   A filter is an object that is invoked at the preprocessing and postprocessing of a request.
+
++   The servlet filter is pluggable
+
++   So maintenance cost will be less.
+
+
+Usage of Filter
+    +   recording all incoming requests
+    +   logs the IP addresses of the computers from which the requests originate
+    +   conversion
+    +   data compression
+    +   encryption and decryption
+
+
+Filter API
+    The javax.servlet package contains the three interfaces of Filter API.
+
+    Filter
+    FilterChain
+    FilterConfig
+
+
+
                                         MVC Design Pattern
                                         ------------------
 
@@ -3528,6 +3554,9 @@ you have to register the tag library using <%@ taglib %> directive.
 
 JSTL can be effectively used if we combine it with EL.
 
+
+core tags:
+-----------------
 <c:set>
 <c:remove>
 <c:out>
@@ -3535,6 +3564,16 @@ JSTL can be effectively used if we combine it with EL.
 <c:forEach>
 <c:forTokens>
 <c:choose>
+
+formatting tags:
+-----------------
+
+
+
+function tags:
+-----------------
+
+
 
 
 
