@@ -3574,7 +3574,84 @@ function tags:
 -----------------
 
 
+                                                    Module-3
+                                                    ========
+Jave EE Framework:
+    every framework is follow a design pattern.
+    it has set of rules that one should follow.
 
+    1) JSF          (web applications)      
+    2) Struts - 1.x
+       Struts - 2.x (web applications)
+    
+    3) hibernate    (orm - to deal with databases)
+    4) spring       (one-stop solution for developing any kind of applications)
+
+
+What is Spring Framework?
+    +   The spring framework was designed by Rod Johnson
+    +   Spring is one of the most popular frameworks for Java enterprise edition.
+    +   Reliable and high-quality applications.                                                    
+
+Spring Framework Architecture?
+(Diagram)
+
+Spring Core Concepts – DI, IoC?
+
+a) Inversion of Control:
+        feature of constructing objects by spring framework.
+        spring follow factory design pattern.
+        IoC container (Spring core container)
+        +   BeanFactory
+            -   it is a light weight
+        +   ApplicationContext
+            -   provide all features of BeanFactory as well as additional features.
+
+        +   IoC container follow singleton design pattern by default to create beans.
+            i.e., it create only one object for one class.
+
+
+
+
+3 different ways of configuring:
++   xml configurations
++   annotation based configurations
++   java based configuration with annotations
+
+
+BeanCreationException?
+    
+
+Dependency Injection – Whenever we create objects, the dependent objects are created first, and
+                       these dependent objects are given to their parent object. finally the parent object
+                       is created with all dependent objects.
+
+Spring Core - Components
+The Core container:
+    +   SpEL
+    +   Context
+    +   Core
+    +   Beans
+
+
+The SpEL module provides a powerful expression language for manipulating objects during execution.
+Context is built on the basis of Beans and Core and allows you to access any object that is defined in the settings. The key element of the Context module is the ApplicationContext interface.
+The Core module provides key parts of the framework including IoC and DI properties.
+The Bean module is responsible for creating and managing Spring Beans – is application context.
+
+
+Spring 5 Features?
++   Support for Java 8, Java 9, Java EE 7, Java EE 8, Servlet 4.0, Bean Validation 2.0, and JPA 2.2. 
++   Improved Logging with new module – spring-jcl.
++   File operations are using NIO 2 streams
++   Support for Kotlin, Project Lombok, JSON Binding API as an alternative to Jackson and GSON.
++   Support for JUnit 5
+
+
+
+
+Spring Dependency Injection – Service Classes
+Let’s say we want to send email message and twitter message to the users. For dependency injection, we need to have a base class for the services. So I have MessageService interface with single method declaration for sending messag
 
 
 
