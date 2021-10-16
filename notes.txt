@@ -3619,7 +3619,7 @@ a) Inversion of Control:
 +   java based configuration with annotations
 
 
-BeanCreationException?
+
     
 
 Dependency Injection – Whenever we create objects, the dependent objects are created first, and
@@ -3647,11 +3647,67 @@ Spring 5 Features?
 +   Support for Kotlin, Project Lombok, JSON Binding API as an alternative to Jackson and GSON.
 +   Support for JUnit 5
 
+Dependency Injection    
++   property injection  (literal injection / setter injection)
++   constructor injection
++   inner bean injection
++   bean injection
++   array injection
++   collection injection
+    +   list
+    +   set
+    +   map
+
+Autowiring
+    Enables you to inject the object dependency implicitly. 
+    It internally uses setter or constructor injection.
+
+    +   byName      (match with the object name)
+    +   byType      (match with the class name)
+    +   constructor
+            +   if we have only one bean, it behave like byType
+            +   if we have multiple beans, it behave like byName
+    +   no
+    +   autodetect
+            +   Spring first tries to autowire by the constructor. 
+                If this fails, it tries to autowire by using byType.
 
 
 
-Spring Dependency Injection – Service Classes
-Let’s say we want to send email message and twitter message to the users. For dependency injection, we need to have a base class for the services. So I have MessageService interface with single method declaration for sending messag
+Common Exceptions:
+------------------------------------------
+BeanCreationException?
+UnsatisifiedDependenyInjection?
+NoUniqueBeanDefinitionException?
+
+
+spring bean scopes:
+------------------------------------------
++   singleton       (default scope)
+        objects are created during the startup only in the container.
++   prototype
+        whenever we use getBean(), a new object is created in the container.
++   request         (web application)
++   session         (web application)
++   application     (web application)
+
+
+
+
+init-method
+    is executed after the object is created.
+destroy-method
+    is executed before the object is destroyed.
+factory-method
+    is to call static methods.
+
+
+
+what is spring bean life cycle?
+(diagram)
+
+
+
 
 
 

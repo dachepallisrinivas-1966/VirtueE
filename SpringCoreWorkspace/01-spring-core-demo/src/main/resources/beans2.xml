@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+          
+	<bean id="salaryAccount" class="com.vev.model.Account">
+		<property name="accountNumber" value="1" />
+		<property name="bank" value="SBI" />
+		<property name="branch" value="Chennai" />
+	</bean>
+	
+	<bean id="premiumSalaryAccount" class="com.vev.model.Account">
+		<property name="accountNumber" value="2" />
+		<property name="bank" value="Citi" />
+		<property name="branch" value="Bengaluru" />
+	</bean>
+	
+	<bean id="emp" class="com.vev.model.Employee" autowire="byName">
+		<property name="empId" value="1001" />
+		<property name="name" value="Raghu" />
+		<property name="salary" value="50000.0" />
+	</bean>
+	
+           
+</beans>
