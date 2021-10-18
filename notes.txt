@@ -3615,8 +3615,8 @@ a) Inversion of Control:
 
 3 different ways of configuring:
 +   xml configurations
-+   annotation based configurations
-+   java based configuration with annotations
++   annotation based configurations 
++   java based configuration with annotations   (no need of any xml configuration)
 
 
 
@@ -3667,10 +3667,7 @@ Autowiring
     +   constructor
             +   if we have only one bean, it behave like byType
             +   if we have multiple beans, it behave like byName
-    +   no
-    +   autodetect
-            +   Spring first tries to autowire by the constructor. 
-                If this fails, it tries to autowire by using byType.
+    +   no          
 
 
 
@@ -3692,19 +3689,51 @@ spring bean scopes:
 +   application     (web application)
 
 
+what is spring bean life cycle?
+(diagram)
 
+Spring Bean Life Cycle Callback methods:
+-------------------------------------------
+InitializingBean interface
+    void afterPropertiesSet() throws Exception
+DisposableBean interface
+    void destroy() throws Exception
 
+Spring Bean Life Cycle using xml:
+-----------------------------------------
 init-method
     is executed after the object is created.
 destroy-method
     is executed before the object is destroyed.
-factory-method
-    is to call static methods.
+
+
+                            using annotations
+                            -----------------
+@Component
+    @Configuration      specialized annotation
+    @Service            specialized annotation
+    @repository         specialized annotation
+
+@Value
+
+@Bean
 
 
 
-what is spring bean life cycle?
-(diagram)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

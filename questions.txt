@@ -114,7 +114,9 @@ what is a java bean? how do you integrate with jsp?
 
 
 
-
+what are stero type annotations?
+    @Component
+    
 
 
 
