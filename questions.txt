@@ -127,3 +127,25 @@ what are stero type annotations?
 
 
 
+How to prevent a class from being sub classed from java?
+	final
+Can you override static method?
+	static methods are binded using static way - at compile time.
+	hence we cannot do it.
+Can you access private method?
+	in the same class, it is possible
+How to use final keyword?
+	final variables, final class, final method
+How to use checked exception?
+
+How to fix ConcurrentModificationException?
+Difference between abstract class and interface?
+interfaces in java8?
+Difference between method overloading and method overriding?
+Difference between encapsulation and abstraction?
+How do you clone an object?
+Difference between HashTable and HashMap?
+When to use transient variable?
+When to use arraylist and linkedlist?
+Difference between StringBuffer and StringBuilder?
+How to create user defined exception?

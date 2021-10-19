@@ -16,4 +16,6 @@ public class AppConfig {
 	public LocalTime today() {
 		return LocalTime.now();
 	}
+	
+
 }

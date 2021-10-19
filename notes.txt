@@ -2,56 +2,8 @@ Srinivas Dachepalli | 6305 730 633 | dachepallisrinivas@gmail.com
 
 git repo link : https://github.com/dachepallisrinivas-1966/VirtueE
 
-	Java Training
-	--------------
-	
-		Core Java
-			oops
-			io streams
-			collections
-			exception handling
-			Multi Threading
-
-			
-			
-		Advanced Java
-			dbms basics
-			jdbc
-
-			html
-			css
-			javascript
-			
-			servlets
-			jsp
-			jstl
-			
-			
-		Java EE Frameworks
-
-			hibernate
-			spring - core, mvc
-			spring boot
-
-		Devops Tools
-			GIT
-			Maven
-			Jenkins
-			PMD / SonarLint / SonarQube	(Code Quality Analysis)		
-
-
-
-	Eclipse 
-	STS	(Spring Tool Suite)
-
-
-	Coding Standards	(Best Practices)
-	-----------------------------------------
-	Code -> PMD -> generate a report and it assign marks also for your code.
-		score < 85
-
-		Code Smells
-
+Coding Standards	(Best Practices)
+-----------------------------------------
 	1) naming convensions
 		
 		pascal notation
@@ -3712,13 +3664,18 @@ destroy-method
 @Component
     @Configuration      specialized annotation
     @Service            specialized annotation
-    @repository         specialized annotation
+    @Repository         specialized annotation
 
 @Value
 
 @Bean
 
 
+                            spring-jdbc
+                            -----------
+
+                            
+                            
 
 
 

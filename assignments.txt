@@ -188,6 +188,14 @@ Simple Interest Calculator
 
     Simple interest : Rs. xxxx Only
 
+34) Spring-JDBC assignment
+
+    create a pojo - Movie
+        (id, title, releaseDate, gross)
+
+    write a program that perform CRUD operations.
+    use multi-layered architecture.
+    
 
 
 

@@ -1,0 +1,13 @@
+DROP TABLE products;
+
+CREATE TABLE products
+(id number(4),
+ name varchar2(20),
+ descr varchar2(20)
+);
+
+INSERT INTO products VALUES (101, 'tv', 'lcd tv'); 
+INSERT INTO products VALUES (102, 'tv', 'plasma tv');
+INSERT INTO products VALUES (103, 'tv', 'smart tv');
+INSERT INTO products VALUES (105, 'oven', '6 litres');
+INSERT INTO products VALUES (106, 'watch', 'smart watch');
