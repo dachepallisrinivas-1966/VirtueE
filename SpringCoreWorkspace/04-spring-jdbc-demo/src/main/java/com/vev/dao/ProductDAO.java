@@ -11,4 +11,7 @@ public interface ProductDAO {
 	boolean deleteProduct(String name, String descr);
 	boolean modifyProductDescr(int id, String descr);
 	List<Product> getAllProducts();
+	Product getProductById(int id);
+	public List<Product> findByProductName(String name);
+	
 }

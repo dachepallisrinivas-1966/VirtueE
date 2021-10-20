@@ -6,7 +6,6 @@ import org.springframework.context.support.AbstractApplicationContext;
 import com.vev.config.AppConfig;
 import com.vev.dao.ProductDAO;
 import com.vev.dao.ProductDAOImpl;
-import com.vev.model.Product;
 
 public class App1 {
 
@@ -38,12 +37,22 @@ public class App1 {
 //		else
 //			System.out.println("product not found");
 		
-		boolean result = productDAO.modifyProductDescr(104, "Front Load");
-		if (result)
-			System.out.println("product description modified");
-		else
-			System.out.println("product not found");
+//		boolean result = productDAO.modifyProductDescr(104, "Front Load");
+//		if (result)
+//			System.out.println("product description modified");
+//		else
+//			System.out.println("product not found");
+
+//		List<Product> products = productDAO.getAllProducts();
+//		products.forEach(System.out::println);
 		
+//		Product product = productDAO.getProductById(101);
+//		System.out.println(product);
+		
+		// System.out.println(productDAO.getProductDescrById(101));
+		
+//		List<Product> products = productDAO.findByProductName("tv");
+//		products.forEach(System.out::println);
 		
 		context.registerShutdownHook();
 	}

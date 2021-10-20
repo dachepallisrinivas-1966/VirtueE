@@ -3670,27 +3670,37 @@ destroy-method
 
 @Bean
 
+@Autowired              byType
+
+@Autowired              byName
+@Qualifer("beanName")
+
 
                             spring-jdbc
                             -----------
 
+modify the descr of the product.
+
+JdbcTemplate
+    update()
+    query()
+    queryForObject()
+
+NamedParameterJdbcTemplate
+
+
+RowMapper interface
+    mapRow()
+BeanPropertyRowMapper interface
+ResultSetExtracter interface    
+    extractRow()
                             
-                            
+
+Batch update    
+    
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+       
 
 
 

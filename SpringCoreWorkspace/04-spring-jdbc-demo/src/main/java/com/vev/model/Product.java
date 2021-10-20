@@ -4,6 +4,15 @@ public class Product {
 	private int id;
 	private String name;
 	private String descr;
+	
+	public Product() {
+		/* default constructor */
+	}
+	public Product(int id, String name, String descr) {
+		this.id = id;
+		this.name = name;
+		this.descr = descr;
+	}
 	public int getId() {
 		return id;
 	}
