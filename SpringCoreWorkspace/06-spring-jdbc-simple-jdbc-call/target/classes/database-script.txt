@@ -1,0 +1,16 @@
+CREATE OR REPLACE PROCEDURE getProductNameAndDescr(p_id IN number, p_name OUT varchar, p_descr OUT varchar)
+IS
+	v_id  products.id%type;
+	v_name products.name%type;
+	v_descr products.descr%type;
+BEGIN
+	SELECT id, name, descr
+	INTO v_id, v_name, v_descr
+	FROM products
+	WHERE id = p_id;
+END;
+/
+
+ 
+ 
+

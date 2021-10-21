@@ -1,0 +1,6 @@
+CREATE TABLE song
+(songid  number(3) primary key,
+ songname varchar2(20),
+ singername varchar2(20)
+);
+ 
