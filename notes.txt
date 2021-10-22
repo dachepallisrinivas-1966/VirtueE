@@ -3699,8 +3699,120 @@ ResultSetExtracter interface
 Batch update    
     
 
+hibernate
+-----------
+Hibernate is an ORM (Object-Relational Mapping) framework
 
-       
+important interfaces:
++   SessionFactory
++   Session
++   Transaction
++   Query
++   Criteria
+
+@Entity
+@Table
+
+@Id
+@Column
+@GeneratedValue(strategy)
+    +   IDENTITY            (MySQL)
+    +   AUTO                (automatically apply appropriate mechanism which is best to the database)
+    +   TABLE
+    +   SEQUENCE            (oracle 12c)
+
+
+
+
+relationships:
++   1:1
++   1:M
++   M:1
++   M:N             (not recommended in real world applications)
+
++   uni-directional
++   bi-directional
+
+@OneToOne
+@JoinColumn             (represent foreign key)
+@ManyToOne
+@OneToMany
+
+Cascading Strategies
+    +   ALL
+    +   PERSIST
+    +   REMOVE
+
+Fetching Strategies
+    +   Eager
+    +   Lazy
+
+    
+
+hibernate.cfg.xml
+    +   hbm2ddl.auto     -   CREATE | UPDATE | CREATE-DROP | VALIDATE
+
+
+Inheritance
++   Strategies      (should be mentioned only on super class)
+    
+
+    Employee            { empNumber, empName, salary }
+    Manager             { Allow }
+    ContractEmployee    { Dur }
+
+
+    +   SINGLE_TABLE
+            @DiscriminatorColumn
+            @DiscriminatorValue
+
+
+        emmpNumber      empName         salary      allow       dur     emp_type
+
+
+    +   JOINED_TABLE
+        +   sub class column + foreign key column
+
+            employees           {   empNumber, empName, salary }
+            managers            {   allow, empNumber }
+            contractemployees   {   dur, empNumber }
+
+
+    +   TABLE_PER_CLASS
+        +   super class columns + sub class columns
+
+
+        employees            {   empNumber, empName, salary }
+        managers             {   empNumber, empName, salary, allow }
+        ContractEmployees    {   empNumber, empName, salary, dur}
+
+
+
+HQL
+    Hibernate Query Language
+    HQL - we use column names, entity class name
+
+
+
+
+                                                JUnit 5
+                                                -------
+It is a tool for unit testing.
+unit means class.
+functional testing is important to us.
+
+Junit 5 is re-written completely. But still it support Junit 4.
+Vintage engine will take care of Junit 4.
+Jupiter engine will execute Junit 5 test cases.
+
+
+
+
+
+
+
+
+
 
 
 

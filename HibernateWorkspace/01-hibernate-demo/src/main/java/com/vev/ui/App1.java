@@ -4,7 +4,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import com.vev.model.Song;
+import com.vev.entity.Song;
 
 public class App1 {
 
