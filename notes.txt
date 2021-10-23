@@ -3665,6 +3665,7 @@ destroy-method
     @Configuration      specialized annotation
     @Service            specialized annotation
     @Repository         specialized annotation
+    @Controller         specialized annotation      (mvc application)
 
 @Value
 
@@ -3804,6 +3805,23 @@ functional testing is important to us.
 Junit 5 is re-written completely. But still it support Junit 4.
 Vintage engine will take care of Junit 4.
 Jupiter engine will execute Junit 5 test cases.
+
+assertion methods:
++   assertEquals(val-1, val-2);
++   assertTrue()
++   assertFalse()
+
+
+
+                                            Spring MVC
+                                            ----------
+Model       :   contain data and shared across different layers
+                (pojo)
+Controller  :   java class
+View        :   jsp / velocity / thymeleaf
+
+
+
 
 
 
