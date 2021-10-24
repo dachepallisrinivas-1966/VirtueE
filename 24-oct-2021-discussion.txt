@@ -1,0 +1,341 @@
+deepali jain
++	Object cloning
++	can we declare static variables and methods in an abstract class?
++	can an abstract class inherit another abstract class or non-abstract class?
+
+
+public class Employee implements Coneable {
+
+
+	clone() {
+	}
+}
+
+
+milind jha
++	normalization
+	1 nf	->	having atomic values in each field
+	2 nf	->	functional dependency
+	3 nf	->	should not have transitive dependency
+
+
+prashant arya
++	version jdk 8
++	important queestions in sql
+		i) ddl,dml,dcl commands
+		ii) normalization
+		iii) joins
+		iv) sub queries
+		v) views
+		vi) few library functions
+		vii) integrity constraints
+
+harshavardhan
++	
+
+sourav banik
++	jdbc imp. questions
+	+	jdbc drivers
+	+	statement vs prepeared statement
+	+	result set, types of results
+			read only 
+			read write
+			updatable resultsets	(additonal parameters)
+	+	callable statements
+	+	commit, rollback
+	+	setAutoCommit()
+	+	create connection - Class.forName(), DriverManager.getConnection()
+	+	try-with-resources
+	+	batch update
+
+
+	
+
++	alok jaiswal
+
+	real world example abstraction and encapsulation.
+
+
+
+	class
+		data					(money)
+		methods					(operations on that money)
+
+
+
+
+
+
+
+
+	Bank Account
+		name, age, address, etc.,
+		proofs (id, address, photo etc.,)
+
+		money transactions
+
+
+
+	withdraw procedure
+		fill the form
+		signature is verified
+		amount is checked
+		finally you will get the money.
+		setAddress(documents)
+
+
+
+
+
+
+Bank						End User (Account Holder)
+withdraw(form)
+						money
+
+						
+
+						if you want to change the address
+changeAddress(documents)			address_proof
+
+
+						
+
+
+
+abstraction	->	behaviour hiding
+encapulation	->	data hiding
+
+	data hiding : making data members as private
+	encapsulation : putting data and related methods inside a single unit known as class.
+		allowing the private data members whenever it is needed to the external classes in the form of public setter and
+		getter methods.
+
+
+
+
+class  Employee {
+	id;
+	name;
+	address;
+	private mobilenumber;
+	private Double salary;
+
+
+	getId() {
+		
+	}
+
+	public setSalary() {
+		if (this == HRPErson) {
+			...
+		} else {
+			s.o.p("you are not authorised do so");
+	
+	}
+	public getSalary() {
+		
+	}
+};
+
+		CODING STANDARDS
+
+		data members must be private 
+
+		every class should follow encapsulation, abstraction.
+
+
+
+
+
+
+
+
+
+		Student s1 = ...
+		Student s2 = s1;
+
+
+		Student s2 = s1.clone();
+
+
+
+
+	Composition:		(tightly coupled)
+		one object contain another object within it.
+
+
+	class Employee {
+		id;
+		name;
+		Qualification qual = new Qualification("B.Tech", "DU");
+	}
+
+	class Qualification {
+		degreeName;
+		universityName;
+		.....
+	}
+	
+
+	Aggregation:
+		has-a relation ship
+
+
+	class College {
+		...
+		List<Student> students = new ArrayList();
+	}
+
+	class Student {
+		...
+	}
+
+	main() {
+		College c1 = new College("ABC College");
+
+		Student s1 = new Student("ramu");
+		Student s2 = new Student("kiran");
+
+		List<Student> students = new ArrayList<>();
+		students.add(s1);
+		students.add(s2);
+
+		c1.setStudents(students);
+
+	}
+
+
+	Composition:
+	--------------
+
+	no multiple inheritance.
+	interfaces.
+
+
+
+	class  A {
+		void m1() {
+			s.o.p("m1 method ...");
+		}
+	}
+
+	class  B {
+		void m2() {
+			s.o.p("m2 method ...");
+		}
+	}
+		
+	class  C  extends A, B {			// not possible
+		m1()
+		m2()
+
+		void m3() {
+			s.o.p("m3 method ...");
+		}
+	}
+
+
+
+	----------------------------------------------------------------------
+
+
+	interface  A {
+		void m1();
+		default void m4() {
+			return;
+		}
+		
+	}
+
+	
+	class  C  implements  A, B {			// not possible
+		@Override
+		void m1() {
+		
+		}
+
+		@Override
+		void m2() {
+		}
+
+		
+		void m3() {
+			s.o.p("m3 method ...");
+		}
+	}
+
+
+	-----------------------------------------------------------------------
+
+	[[ default method -> backward compatibility of the code. ]]
+
+
+
+copy constructor:
+-----------------
+	it is a special constructor that takes object of the same class as parameter to it.
+	
+	class Student {
+
+		id;
+		name;
+
+
+		public Student(int id, String name) {
+
+		}
+		public Student(Student existingStudent) {
+			this.id = existingStudent.id;
+			this.name = existingStudent.name;
+			
+		}
+	}
+
+
+	class Main() {
+		psvm() {
+			Student s1 = new Student(1, "ramu");
+			// Student s2 = new Student(1, "ramu");
+
+			Student s2 = new Student(s1);
+			
+			s.o.p(s1);
+			s.o.p(s2);
+			
+
+		}
+	}
+
+
+
+Thread:
+	light weight process.
+	
+
+	Multi threading and multi tasking?
+		
+
+	Thread class
+	Runnable interface
+		public void run() {
+			// light weight process
+		}
+	}
+
+
+
+	Thread t1 = new Thread();
+	t1.start();		// run() is called
+
+
+	
+
+
+
+
+	
+
+	
+
+	
+
